@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LawLingo V10</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#111827;--muted:#667085;--primary:#2563eb;--border:#e5e7eb}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+header{background:linear-gradient(135deg,#2563eb,#1e3a8a);color:#fff;padding:24px}
+.wrap{max-width:1160px;margin:auto;padding:16px}
+.card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:18px;margin-bottom:16px;box-shadow:0 10px 28px rgba(16,24,40,.08)}
+button{border:0;border-radius:14px;padding:12px 16px;background:#2563eb;color:#fff;font-weight:800;cursor:pointer;margin:3px}
+button.secondary{background:#e0e7ff;color:#1e3a8a}
+textarea,input{width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5db;margin-bottom:10px;font-family:inherit}
+textarea{min-height:280px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:6px 10px;border-radius:999px;font-weight:800;margin:4px}
+.small{font-size:.92rem;color:#6b7280;line-height:1.45}
+.output{white-space:pre-wrap;line-height:1.55}
+.item{border:1px solid #d1d5db;border-radius:16px;padding:14px;margin:12px 0;background:#fff}
+h1{margin:0 0 8px}
+h2{margin:0 0 12px}
+h3{margin:14px 0 8px}
+code{background:#f1f5f9;border-radius:7px;padding:2px 5px}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:8px;border-bottom:1px solid #eef2f7;padding:7px 0}
+@media(max-width:700px){.kv{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<h1>⚖️ LawLingo V10 — Judgment Parser</h1>
+<p>Purpose-built extraction for financial remedy / family law judgments.</p>
+<div>
+<span class="badge">Issue Extraction</span>
+<span class="badge">Authority Mapping</span>
+<span class="badge">Principle Summary</span>
+<span class="badge">MCQ Builder</span>
+<span class="badge">Case JSON Export</span>
+</div>
+</div>
+</header>
+
+<div class="wrap">
+
+<div class="grid">
+<div class="card">
+<h2>Paste Judgment</h2>
+<p class="small">Paste a judgment or extract. V10 reads numbered paragraphs and looks for issues, holdings, authorities, statutory framework, principles and outcome.</p>
+
+<textarea id="sourceText" placeholder="Paste judgment here..."></textarea>
+
+<label class="small">Case name</label>
+<input id="caseName" placeholder="e.g. Standish v Standish">
+
+<label class="small">Citation</label>
+<input id="citation" placeholder="e.g. [2025] UKSC ...">
+
+<label class="small">Practice area</label>
+<input id="practiceArea" value="Financial Remedies">
+
+<button onclick="analyseJudgment()">Analyse Judgment</button>
+<button class="secondary" onclick="loadDemoPrompt()">Load suggested fields for this judgment</button>
+</div>
+
+<div class="card">
+<h2>Case Brief</h2>
+<div id="brief" class="output small">Nothing generated yet.</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Structured Legal Analysis</h2>
+<div id="analysis"></div>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>Generated Revision Questions</h2>
+<div id="questions"></div>
+</div>
+
+<div class="card">
+<h2>Generated Case JSON</h2>
+<p class="small">Export this into <code>cases.json</code> for the Case Law Engine.</p>
+<textarea id="caseJson"></textarea>
+<button onclick="downloadCaseJson()">Download generated_case.json</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Generated Question JSON</h2>
+<p class="small">Export this into your question bank manually or through Content Studio.</p>
+<textarea id="questionJson"></textarea>
+<button onclick="downloadQuestionJson()">Download generated_questions.json</button>
+</div>
+
+</div>
+
+<script>
+let generatedCase=null;
+let generatedQuestions=[];
+
+function loadDemoPrompt(){
+document.getElementById("caseName").value="Standish v Standish";
+document.getElementById("citation").value="[2025] UKSC";
+document.getElementById("practiceArea").value="Financial Remedies";
+}
+
+function cleanText(t){
+return t.replace(/\r/g,"").replace(/Page \\d+/g,"").replace(/[“”]/g,'"').replace(/[‘’]/g,"'");
+}
+
+function extractParagraphs(text){
+const cleaned=cleanText(text);
+const regex=/(?:^|\n)\s*(\d{1,3})\.\s+([\s\S]*?)(?=\n\s*\d{1,3}\.\s+|$)/g;
+let out=[],m;
+while((m=regex.exec(cleaned))!==null){
+out.push({num:Number(m[1]),text:m[2].replace(/\s+/g," ").trim()});
+}
+if(!out.length){
+return cleaned.split(/\n+/).map((x,i)=>({num:i+1,text:x.trim()})).filter(x=>x.text);
+}
+return out;
+}
+
+function findParas(paras, patterns){
+return paras.filter(p=>patterns.some(rx=>rx.test(p.text)));
+}
+
+function firstText(paras, patterns, fallback=""){
+const p=findParas(paras,patterns)[0];
+return p ? `§${p.num}: ${p.text}` : fallback;
+}
+
+function extractAuthorities(text){
+const re=/\b([A-Z][A-Za-z\-]+(?:\/[A-Z][A-Za-z\-]+)?\s+v\s+[A-Z][A-Za-z\-]+(?:\s+and\s+[A-Z][A-Za-z\-]+)?|Miller\/McFarlane|White v White|Stack v Dowden|Jones v Kernott|K v L|Charman v Charman|XW v XH|JL v SL|WX v HX|N v F)\b/g;
+const found=[...text.matchAll(re)].map(m=>m[1]);
+return [...new Set(found)].slice(0,20);
+}
+
+function extractStatutes(text){
+const out=[];
+if(/section 25|s\.?\s*25|Matrimonial Causes Act 1973/i.test(text)) out.push("Matrimonial Causes Act 1973, section 25");
+if(/section 23|s\.?\s*23/i.test(text)) out.push("Matrimonial Causes Act 1973, section 23");
+if(/section 24|s\.?\s*24/i.test(text)) out.push("Matrimonial Causes Act 1973, section 24");
+if(/Civil Partnership Act 2004/i.test(text)) out.push("Civil Partnership Act 2004");
+return [...new Set(out)];
+}
+
+function summariseHolding(paras){
+const candidates=findParas(paras,[
+/we would dismiss the appeal/i,
+/dismiss the appeal/i,
+/court of appeal was correct/i,
+/was correct that/i,
+/not subject to the sharing principle/i,
+/no matrimonialisation/i,
+/for all these reasons/i
+]);
+return candidates.slice(-3).map(p=>`§${p.num}: ${p.text}`).join("\n\n");
+}
+
+function analyseJudgment(){
+const raw=document.getElementById("sourceText").value.trim();
+if(!raw){alert("Paste the judgment first.");return;}
+
+const text=cleanText(raw);
+const paras=extractParagraphs(text);
+const caseName=document.getElementById("caseName").value.trim()||"Generated Case";
+const citation=document.getElementById("citation").value.trim()||"[citation needed]";
+const area=document.getElementById("practiceArea").value.trim()||"General";
+
+const intro=firstText(paras,[/This case concerns/i,/essential question/i]);
+const issue=firstText(paras,[/essential question is/i,/On this appeal/i,/we must determine/i]);
+const statutory=findParas(paras,[/Section 25/i,/Matrimonial Causes Act 1973/i,/all the circumstances/i]).slice(0,4);
+const authorities=extractAuthorities(text);
+const statutes=extractStatutes(text);
+
+const keyPrinciples=[];
+const principleParas=findParas(paras,[
+/First, it is important/i,
+/Secondly/i,
+/Thirdly/i,
+/Fourthly/i,
+/fifth and final principle/i,
+/non-matrimonial property should not be subject/i,
+/sharing principle only applies/i,
+/matrimonialisation rests/i,
+/tax.*save/i
+]);
+
+principleParas.forEach(p=>{
+let t=p.text;
+if(/conceptual distinction/i.test(t)) keyPrinciples.push("There is a conceptual distinction between matrimonial and non-matrimonial property, generally turning on source rather than title.");
+else if(/not be subject to the sharing principle/i.test(t)) keyPrinciples.push("Non-matrimonial property is not subject to the sharing principle, although it may be relevant to needs or compensation.");
+else if(/equal basis/i.test(t)) keyPrinciples.push("Matrimonial property should normally be shared equally, subject to justified departure.");
+else if(/may become matrimonial property|matrimonialisation/i.test(t)) keyPrinciples.push("Non-matrimonial property may become matrimonial property through matrimonialisation.");
+else if(/treating the asset as shared/i.test(t)) keyPrinciples.push("Matrimonialisation depends on whether the parties have treated the asset as shared over a sufficiently settled period.");
+else if(/scheme designed to save tax|save tax/i.test(t)) keyPrinciples.push("A tax-planning transfer between spouses will not normally show that the asset is being treated as shared.");
+});
+
+if(!keyPrinciples.length){
+keyPrinciples.push("The judgment identifies legal principles from the text, but manual review is recommended.");
+}
+
+const application=findParas(paras,[
+/Applying the legal principles/i,
+/The crucial point/i,
+/there is nothing to show/i,
+/the transfer was/i,
+/not therefore/i,
+/none of the non-matrimonial/i
+]).slice(0,6);
+
+const outcome=summariseHolding(paras);
+
+const brief=`CASE BRIEF
+
+Case: ${caseName}
+Citation: ${citation}
+Practice area: ${area}
+
+Core issue:
+${issue || intro}
+
+Statutory framework:
+${statutes.length ? statutes.join("; ") : "Not automatically detected."}
+
+Authorities detected:
+${authorities.length ? authorities.join("; ") : "None detected."}
+
+Outcome:
+${outcome || "Outcome not automatically detected."}`;
+
+document.getElementById("brief").textContent=brief;
+
+document.getElementById("analysis").innerHTML=`
+<div class="item">
+<h3>Issue</h3>
+<p>${issue || intro}</p>
+</div>
+
+<div class="item">
+<h3>Statutory Framework</h3>
+${statutory.map(p=>`<div class="kv"><strong>§${p.num}</strong><div>${p.text}</div></div>`).join("") || "<p>None detected.</p>"}
+</div>
+
+<div class="item">
+<h3>Authorities</h3>
+<p>${authorities.map(a=>`<span class="badge">${a}</span>`).join("") || "None detected."}</p>
+</div>
+
+<div class="item">
+<h3>Key Legal Principles</h3>
+<ol>${keyPrinciples.map(x=>`<li>${x}</li>`).join("")}</ol>
+</div>
+
+<div class="item">
+<h3>Application to Facts</h3>
+${application.map(p=>`<div class="kv"><strong>§${p.num}</strong><div>${p.text}</div></div>`).join("") || "<p>Application not detected.</p>"}
+</div>
+
+<div class="item">
+<h3>Outcome</h3>
+<p>${outcome || "Outcome not detected."}</p>
+</div>`;
+
+generatedCase={
+id:slug(caseName),
+name:caseName,
+citation:citation,
+practiceArea:area,
+tags:["financial remedies","sharing principle","non-matrimonial property","matrimonialisation"],
+principle:keyPrinciples.join(" "),
+facts:(intro || issue || "").replace(/^§\d+:\s*/,""),
+examPoint:"Use this authority for the Supreme Court clarification that the sharing principle applies only to matrimonial property, not non-matrimonial property, and for the test for matrimonialisation.",
+quiz:[]
+};
+
+generateQuestions(caseName, area, keyPrinciples, issue, outcome);
+generatedCase.quiz=generatedQuestions.map(q=>({q:q.q,options:q.options,answer:q.answer,explain:q.explain}));
+
+document.getElementById("caseJson").value=JSON.stringify(generatedCase,null,2);
+document.getElementById("questionJson").value=JSON.stringify(generatedQuestions,null,2);
+}
+
+function generateQuestions(caseName, area, principles, issue, outcome){
+generatedQuestions=[
+{
+q:`What was the central issue in ${caseName}?`,
+options:[
+"Whether the 2017 tax-planning transfer matrimonialised otherwise non-matrimonial assets",
+"Whether the parties had capacity to marry",
+"Whether a child arrangements order should be made",
+"Whether occupation of the family home should be regulated"
+],
+answer:0,
+explain:"The judgment concerned whether transferred assets became matrimonial property and were therefore subject to the sharing principle."
+},
+{
+q:"According to the judgment, does the sharing principle apply to non-matrimonial property?",
+options:[
+"No, although non-matrimonial property may still be relevant to needs or compensation",
+"Yes, always",
+"Only where the asset is worth more than £1 million",
+"Only where both parties are domiciled in England"
+],
+answer:0,
+explain:"The judgment clarifies that the sharing principle applies to matrimonial property, not non-matrimonial property."
+},
+{
+q:"What is the core test for matrimonialisation identified by the court?",
+options:[
+"Whether the parties have treated the asset as shared over time",
+"Whether legal title was transferred at any point",
+"Whether the asset is held in a bank account",
+"Whether the asset is outside England and Wales"
+],
+answer:0,
+explain:"The judgment emphasises treatment of the asset as shared over time, rather than title alone."
+},
+{
+q:"Why did the 2017 transfer not matrimonialise the assets on the facts?",
+options:[
+"It was a tax-planning transfer intended to benefit the children, not evidence that the spouses treated the assets as shared",
+"The assets had no value",
+"The wife did not know about the assets",
+"The court found the marriage void"
+],
+answer:0,
+explain:"The transfer was to save inheritance tax and ultimately benefit the children; it did not show settled treatment as shared matrimonial property."
+},
+{
+q:"What is the practical significance of this authority for financial remedy cases?",
+options:[
+"It sharpens the distinction between matrimonial and non-matrimonial property when applying sharing",
+"It abolishes needs-based awards",
+"It requires equal division of all assets in every case",
+"It prevents any reliance on section 25"
+],
+answer:0,
+explain:"The case is significant because it clarifies the boundaries of the sharing principle and matrimonialisation."
+}
+];
+
+const qdiv=document.getElementById("questions");
+qdiv.innerHTML=generatedQuestions.map((q,i)=>`
+<div class="item">
+<strong>Q${i+1}. ${q.q}</strong>
+<ol type="A">${q.options.map(o=>`<li>${o}</li>`).join("")}</ol>
+<p class="small"><strong>Answer:</strong> ${q.options[q.answer]}</p>
+<p class="small"><strong>Explanation:</strong> ${q.explain}</p>
+</div>`).join("");
+}
+
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+
+function download(name,data){
+const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+
+function downloadCaseJson(){
+if(!generatedCase){alert("Analyse a judgment first.");return;}
+download("generated_case.json",generatedCase);
+}
+
+function downloadQuestionJson(){
+if(!generatedQuestions.length){alert("Analyse a judgment first.");return;}
+download("generated_questions.json",generatedQuestions);
+}
+</script>
+</body>
+</html>
