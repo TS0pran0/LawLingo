@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="LawLingo">
+  <meta name="theme-color" content="#2563eb">
+  <title>LawLingo</title>
+  <style>
+    :root {
+      --bg:#f6f8fc; --card:#fff; --text:#111827; --muted:#667085;
+      --primary:#2563eb; --primary-dark:#1d4ed8; --border:#e5e7eb;
+      --shadow:0 14px 32px rgba(16,24,40,.10);
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+    header{background:radial-gradient(circle at top left,#60a5fa,#1d4ed8 55%,#1e3a8a);color:white;padding:max(22px,env(safe-area-inset-top)) 18px 72px}
+    .wrap{width:min(1100px,calc(100% - 28px));margin:0 auto}
+    h1{margin:0;font-size:2rem;line-height:1.05;letter-spacing:-.05em}
+    .subtitle{margin:10px 0 16px;opacity:.95;font-size:1.02rem;line-height:1.35}
+    .stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);padding:9px 12px;border-radius:999px;font-weight:850;backdrop-filter:blur(10px)}
+    main{margin-top:-48px;padding-bottom:44px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+    .wide{grid-column:span 8}.side{grid-column:span 4}.full{grid-column:1/-1}
+    @media(max-width:820px){.wide,.side{grid-column:1/-1}h1{font-size:1.75rem}}
+    h2{margin:0 0 13px;font-size:1.25rem;letter-spacing:-.03em}
+    h3{margin:18px 0 8px;font-size:1.05rem}
+    .cards{display:grid;gap:12px}
+    .area,.topic{border:1px solid var(--border);border-radius:20px;padding:15px;display:grid;gap:9px;cursor:pointer;background:#fff;transition:.15s ease}
+    .area:active,.topic:active{transform:scale(.99)}.area:hover,.topic:hover{border-color:#bfdbfe}
+    .row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+    .title{font-weight:950;font-size:1.08rem}.meta{color:var(--muted);font-size:.94rem;line-height:1.35}
+    .progress{height:10px;background:#edf0f5;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#60a5fa);transition:.25s}
+    button{border:0;border-radius:15px;padding:13px 15px;font-weight:900;cursor:pointer;background:var(--primary);color:white;font-size:1rem;touch-action:manipulation;margin:3px}
+    button:hover{background:var(--primary-dark)}button.secondary{background:#eef2ff;color:#1e3a8a}button.ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}
+    .screen{display:none}.screen.show{display:block}
+    .breadcrumb{color:var(--muted);margin-bottom:12px;font-size:.94rem;line-height:1.4}.breadcrumb strong{color:var(--text)}
+    .question{font-size:1.22rem;font-weight:950;line-height:1.35;margin:12px 0 16px}
+    .answers{display:grid;gap:10px}.answer{background:#fff;color:var(--text);border:1px solid var(--border);text-align:left;font-weight:800;line-height:1.35}
+    .answer.correct{background:#dcfce7;border-color:#86efac;color:#14532d}.answer.wrong{background:#fee2e2;border-color:#fecaca;color:#7f1d1d}
+    .feedback{display:none;margin-top:14px;padding:14px;border-radius:16px;background:#f8fafc;border:1px solid var(--border);line-height:1.5}.feedback.show{display:block}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.small{color:var(--muted);font-size:.92rem;line-height:1.45}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;background:#f1f5f9;border-radius:999px;color:#334155;font-weight:850;font-size:.86rem}
+    .box{border:1px solid var(--border);border-radius:17px;padding:13px;background:#fbfdff;margin-bottom:10px}
+    .review-item{border:1px solid var(--border);border-radius:16px;padding:13px;margin-bottom:10px;background:#fff}
+    .review-q{font-weight:900;margin-bottom:7px}.review-a{color:var(--muted);line-height:1.45}
+    .error{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:16px;padding:14px;line-height:1.45}
+    input,select,textarea{width:100%;border:1px solid var(--border);border-radius:14px;padding:12px;font-size:1rem;margin-bottom:10px;font-family:inherit}
+    textarea{min-height:170px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .tab{background:#eef2ff;color:#1e3a8a}.tab.active{background:#2563eb;color:white}
+    .studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:820px){.studio-grid{grid-template-columns:1fr}}
+    .success{background:#ecfdf5;border:1px solid #bbf7d0;color:#14532d;border-radius:16px;padding:12px;margin:10px 0;display:none}
+    .success.show{display:block}
+    .danger{background:#fff1f2;border:1px solid #fecdd3;color:#9f1239;border-radius:16px;padding:12px;margin:10px 0}
+    code{background:#f1f5f9;border-radius:7px;padding:2px 5px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>⚖️ LawLingo Revision</h1>
+    <p class="subtitle">Practice-area legal revision with editable content studio.</p>
+    <div class="stats">
+      <div class="pill">🔥 Streak: <span id="streak">0</span></div>
+      <div class="pill">⭐ XP: <span id="xp">0</span></div>
+      <div class="pill">🎯 Today: <span id="todayXp">0 XP</span></div>
+      <div class="pill">❤️ Lives: <span id="lives">5</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+    <section class="card wide" id="mainCard">
+      <div class="tabs">
+        <button class="tab active" id="learnTab">Learn</button>
+        <button class="tab" id="studioTab">Content Studio</button>
+      </div>
+
+      <div id="loading-screen" class="screen show"><h2>Loading LawLingo…</h2><p class="small">Fetching question bank.</p></div>
+
+      <div id="area-screen" class="screen">
+        <h2>Practice areas</h2>
+        <input id="searchBox" placeholder="Search topics, questions, cases…" />
+        <div class="cards" id="areas"></div>
+      </div>
+
+      <div id="topic-screen" class="screen">
+        <div class="breadcrumb"><span id="topicCrumb"></span></div>
+        <h2 id="topicHeading">Topics</h2>
+        <div class="cards" id="topics"></div>
+        <div class="actions"><button class="secondary" onclick="showAreas()">Back to practice areas</button></div>
+      </div>
+
+      <div id="lesson-screen" class="screen">
+        <span class="badge" id="lesson-badge">Lesson</span>
+        <div class="question" id="question"></div>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions">
+          <button id="nextBtn" style="display:none;">Continue</button>
+          <button class="secondary" id="quitBtn">Back to topics</button>
+        </div>
+      </div>
+
+      <div id="review-screen" class="screen">
+        <h2>Wrong-answer review</h2>
+        <div id="reviewList"></div>
+        <div class="actions">
+          <button class="secondary" id="clearReviewBtn">Clear review list</button>
+          <button id="backFromReviewBtn">Back</button>
+        </div>
+      </div>
+
+      <div id="studio-screen" class="screen">
+        <h2>Content Studio</h2>
+        <p class="small">Edit content here, then export a new <code>questions.json</code> and upload it to GitHub.</p>
+
+        <div class="success" id="studioMessage">Saved.</div>
+
+        <div class="studio-grid">
+          <div class="box">
+            <h3>Add a question</h3>
+            <label class="small">Practice area</label>
+            <select id="areaSelect"></select>
+
+            <label class="small">Topic</label>
+            <select id="topicSelect"></select>
+
+            <label class="small">Question</label>
+            <textarea id="newQuestion" placeholder="Enter the question..."></textarea>
+
+            <label class="small">Answer options</label>
+            <input id="opt0" placeholder="Option 1">
+            <input id="opt1" placeholder="Option 2">
+            <input id="opt2" placeholder="Option 3">
+            <input id="opt3" placeholder="Option 4">
+
+            <label class="small">Correct answer</label>
+            <select id="correctSelect">
+              <option value="0">Option 1</option>
+              <option value="1">Option 2</option>
+              <option value="2">Option 3</option>
+              <option value="3">Option 4</option>
+            </select>
+
+            <label class="small">Explanation</label>
+            <textarea id="newExplain" placeholder="Explain why this answer is correct..."></textarea>
+
+            <button id="addQuestionBtn">Add question locally</button>
+          </div>
+
+          <div class="box">
+            <h3>Add a topic</h3>
+            <label class="small">Practice area</label>
+            <select id="newTopicAreaSelect"></select>
+            <label class="small">Topic ID</label>
+            <input id="newTopicId" placeholder="e.g. pd12j">
+            <label class="small">Topic title</label>
+            <input id="newTopicTitle" placeholder="e.g. PD12J">
+            <label class="small">Topic description</label>
+            <textarea id="newTopicDescription" placeholder="Short description..."></textarea>
+            <button id="addTopicBtn">Add topic locally</button>
+
+            <h3>Add a practice area</h3>
+            <label class="small">Practice area ID</label>
+            <input id="newAreaId" placeholder="e.g. advocacy">
+            <label class="small">Practice area title</label>
+            <input id="newAreaTitle" placeholder="e.g. Advocacy">
+            <label class="small">Practice area description</label>
+            <textarea id="newAreaDescription" placeholder="Short description..."></textarea>
+            <button id="addAreaBtn">Add practice area locally</button>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Question bank JSON</h3>
+          <p class="small">You can paste a complete replacement JSON bank here, or export the current version below.</p>
+          <textarea id="jsonEditor"></textarea>
+          <div class="actions">
+            <button id="applyJsonBtn">Apply JSON locally</button>
+            <button class="secondary" id="exportJsonBtn">Download questions.json</button>
+            <button class="ghost" id="copyJsonBtn">Copy JSON</button>
+          </div>
+          <div class="danger">
+            Important: local changes here affect your current browser only. To update the live site for everyone, upload the exported <code>questions.json</code> to GitHub.
+          </div>
+        </div>
+      </div>
+
+      <div id="error-screen" class="screen">
+        <h2>Question bank not found</h2>
+        <div class="error">
+          The app loaded, but <strong>questions.json</strong> could not be found. Upload <strong>questions.json</strong> to the same GitHub repository folder as <strong>index.html</strong>, then refresh.
+        </div>
+      </div>
+    </section>
+
+    <aside class="card side">
+      <h2>Daily mission</h2>
+      <div class="box">
+        <strong>Earn 50 XP today</strong>
+        <p class="small">Correct answers give 10 XP.</p>
+        <div class="progress"><div class="bar" id="dailyBar"></div></div>
+      </div>
+      <div class="box">
+        <strong>Weak areas</strong>
+        <p class="small" id="weakAreas">No weak areas yet.</p>
+      </div>
+      <button class="secondary" id="mixedBtn">Mixed revision</button>
+      <button class="secondary" id="reviewBtn">Review mistakes</button>
+      <button class="secondary" id="studioShortcutBtn">Open Content Studio</button>
+      <button class="ghost" id="resetLivesBtn">Restore lives</button>
+      <button class="ghost" id="resetBtn">Reset progress</button>
+      <p class="small">V5: Content Studio added.</p>
+    </aside>
+  </div>
+</main>
+
+<script>
+let QUESTION_BANK = [];
+const STORAGE_KEY = "lawlingo-v5-progress";
+const LOCAL_CONTENT_KEY = "lawlingo-v5-local-content";
+const DAILY_GOAL = 50;
+const MAX_LIVES = 5;
+let state = loadState();
+let selectedArea = null;
+let currentTopic = null;
+let currentQuestions = [];
+let currentIndex = 0;
+let answered = false;
+
+async function loadQuestions(){
+  try {
+    const local = localStorage.getItem(LOCAL_CONTENT_KEY);
+    if (local) {
+      QUESTION_BANK = JSON.parse(local);
+      showAreas();
+      populateStudio();
+      return;
+    }
+    const res = await fetch("questions.json?cache=" + Date.now());
+    if (!res.ok) throw new Error("Missing questions.json");
+    QUESTION_BANK = await res.json();
+    showAreas();
+    populateStudio();
+  } catch (e) {
+    showOnly("error-screen");
+  }
+}
+
+function todayKey(){return new Date().toISOString().slice(0,10)}
+function allTopics(){return QUESTION_BANK.flatMap(area=>area.topics.map(t=>({...t,areaId:area.id,areaTitle:area.title})))}
+
+function loadState(){
+  const base={xp:0,todayXp:0,today:todayKey(),streak:0,lastActive:null,lives:MAX_LIVES,completed:{},mistakes:{},review:[]};
+  try{
+    const saved=JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const merged={...base,...(saved||{})};
+    if(merged.today!==todayKey()){merged.today=todayKey();merged.todayXp=0;merged.lives=MAX_LIVES}
+    return merged;
+  }catch{return base}
+}
+function saveState(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));renderStats()}
+function updateStreak(){
+  const today=todayKey(),yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  if(state.lastActive===today)return;
+  state.streak=state.lastActive===yesterday?state.streak+1:1;
+  state.lastActive=today;
+}
+function renderStats(){
+  document.getElementById("xp").textContent=state.xp;
+  document.getElementById("todayXp").textContent=state.todayXp+" XP";
+  document.getElementById("streak").textContent=state.streak;
+  document.getElementById("lives").textContent=state.lives;
+  document.getElementById("dailyBar").style.width=Math.min(100,(state.todayXp/DAILY_GOAL)*100)+"%";
+  const mistakes=Object.entries(state.mistakes||{}).sort((a,b)=>b[1]-a[1]).slice(0,4);
+  document.getElementById("weakAreas").textContent=mistakes.length?mistakes.map(([t,c])=>`${t}: ${c}`).join(" · "):"No weak areas yet.";
+}
+function topicProgress(topic){return Math.round(((state.completed[topic.id]||0)/topic.questions.length)*100)}
+function areaProgress(area){return area.topics.length?Math.round(area.topics.reduce((s,t)=>s+topicProgress(t),0)/area.topics.length):0}
+function showOnly(id){["loading-screen","area-screen","topic-screen","lesson-screen","review-screen","studio-screen","error-screen"].forEach(x=>document.getElementById(x).classList.remove("show"));document.getElementById(id).classList.add("show")}
+function setTab(which){
+  document.getElementById("learnTab").classList.toggle("active",which==="learn");
+  document.getElementById("studioTab").classList.toggle("active",which==="studio");
+}
+function showAreas(){selectedArea=null;setTab("learn");showOnly("area-screen");renderAreas();renderStats()}
+function renderAreas(){
+  const query=(document.getElementById("searchBox")?.value||"").toLowerCase().trim();
+  const el=document.getElementById("areas"); el.innerHTML="";
+  QUESTION_BANK.forEach(area=>{
+    const hay=[area.title,area.description,...area.topics.flatMap(t=>[t.title,t.description,...t.questions.flatMap(q=>[q.q,q.explain,...q.options])])].join(" ").toLowerCase();
+    if(query && !hay.includes(query)) return;
+    const p=areaProgress(area), count=area.topics.reduce((s,t)=>s+t.questions.length,0);
+    const div=document.createElement("div"); div.className="area";
+    div.innerHTML=`<div class="row"><div><div class="title">${area.title}</div><div class="meta">${area.description}</div></div><strong>${p}%</strong></div><div class="progress"><div class="bar" style="width:${p}%"></div></div><div class="meta">${area.topics.length} topics · ${count} questions</div>`;
+    div.onclick=()=>showTopics(area); el.appendChild(div);
+  });
+}
+function showTopics(area){selectedArea=area;setTab("learn");showOnly("topic-screen");document.getElementById("topicCrumb").innerHTML=`Practice areas / <strong>${area.title}</strong>`;document.getElementById("topicHeading").textContent=area.title;renderTopics(area)}
+function renderTopics(area){
+  const el=document.getElementById("topics");el.innerHTML="";
+  area.topics.forEach(topic=>{
+    const p=topicProgress(topic); const div=document.createElement("div"); div.className="topic";
+    div.innerHTML=`<div class="row"><div><div class="title">${topic.title}</div><div class="meta">${topic.description}</div></div><strong>${p}%</strong></div><div class="progress"><div class="bar" style="width:${p}%"></div></div><div class="meta">${topic.questions.length} questions</div>`;
+    div.onclick=()=>startTopic(topic,area); el.appendChild(div);
+  });
+}
+function startTopic(topic,area){
+  if(state.lives<=0)return alert("No lives left. Restore lives from the side panel to continue.");
+  selectedArea=area||selectedArea; currentTopic={...topic,areaTitle:selectedArea?.title||topic.areaTitle||""}; currentQuestions=[...topic.questions]; currentIndex=0; setTab("learn"); showOnly("lesson-screen"); showQuestion();
+}
+function startMixed(){
+  if(state.lives<=0)return alert("No lives left. Restore lives from the side panel to continue.");
+  const all=allTopics().flatMap(topic=>topic.questions.map(q=>({...q,topicId:topic.id,topicTitle:topic.title,areaTitle:topic.areaTitle})));
+  currentTopic={id:"mixed",title:"Mixed Revision",areaTitle:"All practice areas"}; currentQuestions=shuffle(all).slice(0,Math.min(12,all.length)); currentIndex=0; setTab("learn"); showOnly("lesson-screen"); showQuestion();
+}
+function shuffle(arr){return arr.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1])}
+function showQuestion(){
+  answered=false; const item=currentQuestions[currentIndex];
+  document.getElementById("lesson-badge").textContent=`${currentTopic.areaTitle} / ${currentTopic.title} · ${currentIndex+1}/${currentQuestions.length}`;
+  document.getElementById("question").textContent=item.q;
+  document.getElementById("feedback").classList.remove("show"); document.getElementById("feedback").innerHTML="";
+  document.getElementById("nextBtn").style.display="none";
+  const answers=document.getElementById("answers"); answers.innerHTML="";
+  item.options.forEach((opt,idx)=>{const btn=document.createElement("button");btn.className="answer";btn.textContent=opt;btn.onclick=()=>chooseAnswer(btn,idx);answers.appendChild(btn)});
+}
+function chooseAnswer(btn,idx){
+  if(answered)return; answered=true;
+  const item=currentQuestions[currentIndex], buttons=[...document.querySelectorAll(".answer")], topicName=item.topicTitle||currentTopic.title;
+  buttons[item.answer].classList.add("correct");
+  if(idx===item.answer){
+    updateStreak(); state.xp+=10; state.todayXp+=10;
+    if(currentTopic.id!=="mixed") state.completed[currentTopic.id]=Math.max(state.completed[currentTopic.id]||0,currentIndex+1);
+    document.getElementById("feedback").innerHTML=`<strong>Correct.</strong><br>${item.explain}`;
+  } else {
+    btn.classList.add("wrong"); state.lives=Math.max(0,state.lives-1); state.mistakes[topicName]=(state.mistakes[topicName]||0)+1;
+    state.review.unshift({topic:topicName,q:item.q,correct:item.options[item.answer],explain:item.explain,date:todayKey()}); state.review=state.review.slice(0,40);
+    document.getElementById("feedback").innerHTML=`<strong>Not quite.</strong><br>${item.explain}<br><br><strong>Correct answer:</strong> ${item.options[item.answer]}`;
+  }
+  document.getElementById("feedback").classList.add("show"); document.getElementById("nextBtn").style.display="inline-block"; saveState(); renderAreas();
+}
+function nextQuestion(){
+  if(state.lives<=0){alert("No lives left. Restore lives to continue.");selectedArea?showTopics(selectedArea):showAreas();return}
+  currentIndex++; if(currentIndex>=currentQuestions.length){selectedArea?showTopics(selectedArea):showAreas()}else showQuestion();
+}
+function showReview(){
+  setTab("learn"); showOnly("review-screen"); const list=document.getElementById("reviewList");
+  if(!state.review.length){list.innerHTML=`<p class="small">No mistakes saved yet.</p>`;return}
+  list.innerHTML=state.review.map(item=>`<div class="review-item"><div class="badge">${item.topic}</div><div class="review-q">${item.q}</div><div class="review-a"><strong>Answer:</strong> ${item.correct}<br>${item.explain}</div></div>`).join("");
+}
+
+/* Content Studio */
+function showStudio(){
+  setTab("studio");
+  showOnly("studio-screen");
+  populateStudio();
+}
+function saveLocalContent(){
+  localStorage.setItem(LOCAL_CONTENT_KEY, JSON.stringify(QUESTION_BANK));
+  populateStudio();
+  renderAreas();
+}
+function flashMessage(text){
+  const el=document.getElementById("studioMessage");
+  el.textContent=text;
+  el.classList.add("show");
+  setTimeout(()=>el.classList.remove("show"),2200);
+}
+function slugify(s){
+  return String(s).toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+}
+function populateStudio(){
+  if(!QUESTION_BANK.length)return;
+  const areaSelect=document.getElementById("areaSelect");
+  const newTopicAreaSelect=document.getElementById("newTopicAreaSelect");
+  areaSelect.innerHTML="";
+  newTopicAreaSelect.innerHTML="";
+  QUESTION_BANK.forEach((area,idx)=>{
+    areaSelect.add(new Option(area.title, idx));
+    newTopicAreaSelect.add(new Option(area.title, idx));
+  });
+  updateTopicSelect();
+  document.getElementById("jsonEditor").value=JSON.stringify(QUESTION_BANK,null,2);
+}
+function updateTopicSelect(){
+  const areaIndex=Number(document.getElementById("areaSelect").value||0);
+  const topicSelect=document.getElementById("topicSelect");
+  topicSelect.innerHTML="";
+  (QUESTION_BANK[areaIndex]?.topics||[]).forEach((topic,idx)=>{
+    topicSelect.add(new Option(topic.title, idx));
+  });
+}
+function addQuestion(){
+  const ai=Number(document.getElementById("areaSelect").value);
+  const ti=Number(document.getElementById("topicSelect").value);
+  const q=document.getElementById("newQuestion").value.trim();
+  const options=[0,1,2,3].map(i=>document.getElementById("opt"+i).value.trim()).filter(Boolean);
+  const answer=Number(document.getElementById("correctSelect").value);
+  const explain=document.getElementById("newExplain").value.trim();
+
+  if(!QUESTION_BANK[ai] || !QUESTION_BANK[ai].topics[ti]) return alert("Choose a valid area and topic.");
+  if(!q || options.length < 2 || !explain) return alert("Add a question, at least two options, and an explanation.");
+  if(answer >= options.length) return alert("Correct answer must match one of the filled options.");
+
+  QUESTION_BANK[ai].topics[ti].questions.push({q,options,answer,explain});
+  ["newQuestion","opt0","opt1","opt2","opt3","newExplain"].forEach(id=>document.getElementById(id).value="");
+  saveLocalContent();
+  flashMessage("Question added locally. Export questions.json to update GitHub.");
+}
+function addTopic(){
+  const ai=Number(document.getElementById("newTopicAreaSelect").value);
+  const title=document.getElementById("newTopicTitle").value.trim();
+  const description=document.getElementById("newTopicDescription").value.trim();
+  const id=(document.getElementById("newTopicId").value.trim()||slugify(title));
+  if(!QUESTION_BANK[ai]) return alert("Choose a valid practice area.");
+  if(!id || !title || !description) return alert("Add a topic ID, title and description.");
+  if(QUESTION_BANK[ai].topics.some(t=>t.id===id)) return alert("That topic ID already exists in this practice area.");
+  QUESTION_BANK[ai].topics.push({id,title,description,questions:[]});
+  ["newTopicId","newTopicTitle","newTopicDescription"].forEach(id=>document.getElementById(id).value="");
+  saveLocalContent();
+  flashMessage("Topic added locally.");
+}
+function addArea(){
+  const title=document.getElementById("newAreaTitle").value.trim();
+  const description=document.getElementById("newAreaDescription").value.trim();
+  const id=(document.getElementById("newAreaId").value.trim()||slugify(title));
+  if(!id || !title || !description) return alert("Add a practice area ID, title and description.");
+  if(QUESTION_BANK.some(a=>a.id===id)) return alert("That practice area ID already exists.");
+  QUESTION_BANK.push({id,title,description,topics:[]});
+  ["newAreaId","newAreaTitle","newAreaDescription"].forEach(id=>document.getElementById(id).value="");
+  saveLocalContent();
+  flashMessage("Practice area added locally.");
+}
+function applyJson(){
+  try{
+    const parsed=JSON.parse(document.getElementById("jsonEditor").value);
+    if(!Array.isArray(parsed)) throw new Error("Root must be an array");
+    parsed.forEach(area=>{
+      if(!area.id || !area.title || !Array.isArray(area.topics)) throw new Error("Invalid practice area structure");
+      area.topics.forEach(topic=>{
+        if(!topic.id || !topic.title || !Array.isArray(topic.questions)) throw new Error("Invalid topic structure");
+      });
+    });
+    QUESTION_BANK=parsed;
+    saveLocalContent();
+    flashMessage("JSON applied locally.");
+  }catch(e){alert("Invalid JSON: "+e.message)}
+}
+function downloadJson(){
+  const blob=new Blob([JSON.stringify(QUESTION_BANK,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url; a.download="questions.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+}
+async function copyJson(){
+  try{
+    await navigator.clipboard.writeText(JSON.stringify(QUESTION_BANK,null,2));
+    flashMessage("JSON copied.");
+  }catch{
+    alert("Copy failed. Use the JSON box to manually select and copy.");
+  }
+}
+
+document.getElementById("searchBox").addEventListener("input",renderAreas);
+document.getElementById("nextBtn").onclick=nextQuestion;
+document.getElementById("quitBtn").onclick=()=>selectedArea?showTopics(selectedArea):showAreas();
+document.getElementById("mixedBtn").onclick=startMixed;
+document.getElementById("reviewBtn").onclick=showReview;
+document.getElementById("backFromReviewBtn").onclick=()=>selectedArea?showTopics(selectedArea):showAreas();
+document.getElementById("clearReviewBtn").onclick=()=>{state.review=[];saveState();showReview()};
+document.getElementById("resetLivesBtn").onclick=()=>{state.lives=MAX_LIVES;saveState()};
+document.getElementById("resetBtn").onclick=()=>{if(confirm("Reset all LawLingo progress?")){localStorage.removeItem(STORAGE_KEY);state=loadState();showAreas()}};
+
+document.getElementById("learnTab").onclick=showAreas;
+document.getElementById("studioTab").onclick=showStudio;
+document.getElementById("studioShortcutBtn").onclick=showStudio;
+document.getElementById("areaSelect").onchange=updateTopicSelect;
+document.getElementById("addQuestionBtn").onclick=addQuestion;
+document.getElementById("addTopicBtn").onclick=addTopic;
+document.getElementById("addAreaBtn").onclick=addArea;
+document.getElementById("applyJsonBtn").onclick=applyJson;
+document.getElementById("exportJsonBtn").onclick=downloadJson;
+document.getElementById("copyJsonBtn").onclick=copyJson;
+
+renderStats();
+loadQuestions();
+</script>
+</body>
+</html>
