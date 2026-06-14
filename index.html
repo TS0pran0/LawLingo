@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LawLingo V12</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#111827;--muted:#667085;--primary:#2563eb;--border:#e5e7eb;--green:#16a34a;--amber:#f59e0b;--red:#dc2626}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+header{background:linear-gradient(135deg,#2563eb,#1e3a8a);color:white;padding:24px}
+.wrap{max-width:1180px;margin:auto;padding:16px}
+.card{background:white;border:1px solid var(--border);border-radius:22px;padding:18px;margin-bottom:16px;box-shadow:0 10px 28px rgba(16,24,40,.08)}
+button{border:0;border-radius:14px;padding:12px 16px;background:#2563eb;color:white;font-weight:800;cursor:pointer;margin:3px}
+button.secondary{background:#e0e7ff;color:#1e3a8a}
+button.ghost{background:white;color:#1e3a8a;border:1px solid #bfdbfe}
+textarea,input,select{width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5db;margin-bottom:10px;font-family:inherit}
+textarea{min-height:190px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.badge{display:inline-block;background:#dbeafe;color:#1d4ed8;padding:6px 10px;border-radius:999px;font-weight:800;margin:4px;font-size:.85rem}
+.badge.uksc{background:#dcfce7;color:#166534}.badge.ca{background:#fef3c7;color:#92400e}.badge.hc{background:#e0e7ff;color:#3730a3}.badge.warn{background:#fff7ed;color:#9a3412}.badge.red{background:#fee2e2;color:#991b1b}
+.small{font-size:.92rem;color:#6b7280;line-height:1.45}
+.item{border:1px solid #d1d5db;border-radius:16px;padding:14px;margin:12px 0;background:white}
+.case-card{border:1px solid #d1d5db;border-radius:16px;padding:14px;margin:12px 0;cursor:pointer;background:white}
+.case-card:hover{border-color:#93c5fd}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.tab{background:#e0e7ff;color:#1e3a8a}.tab.active{background:#2563eb;color:white}
+.principle{font-weight:800;line-height:1.45}
+.node{display:inline-block;border:1px solid #bfdbfe;background:#eff6ff;border-radius:999px;padding:8px 12px;margin:5px;font-weight:800;color:#1e3a8a;cursor:pointer}
+.node.root{background:#dcfce7;color:#166534;border-color:#86efac}
+.node.warn{background:#fff7ed;color:#9a3412;border-color:#fed7aa}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:8px;border-bottom:1px solid #eef2f7;padding:7px 0}
+@media(max-width:700px){.kv{grid-template-columns:1fr}}
+.output{white-space:pre-wrap;line-height:1.55}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<h1>⚖️ LawLingo V12 — Linked Case Graph</h1>
+<p>Authority weighting, clickable cited cases, practitioner notes and exportable case database.</p>
+<div>
+<span class="badge">Case Graph</span>
+<span class="badge">Authority Weighting</span>
+<span class="badge">Practitioner Notes</span>
+<span class="badge">Cited By</span>
+</div>
+</div>
+</header>
+
+<div class="wrap">
+
+<div class="tabs">
+<button class="tab active" onclick="showTab('parser', this)">Judgment Parser</button>
+<button class="tab" onclick="showTab('cases', this)">Cases</button>
+<button class="tab" onclick="showTab('graph', this)">Case Graph</button>
+<button class="tab" onclick="showTab('export', this)">Export</button>
+</div>
+
+<div id="parser" class="tabScreen">
+<div class="grid">
+<div class="card">
+<h2>Paste Judgment</h2>
+<textarea id="sourceText" placeholder="Paste judgment here..."></textarea>
+<label class="small">Main case name</label>
+<input id="caseName" placeholder="e.g. Standish v Standish">
+<label class="small">Citation</label>
+<input id="citation" placeholder="e.g. [2025] UKSC ...">
+<label class="small">Practice area</label>
+<input id="practiceArea" value="Financial Remedies">
+<button onclick="analyseJudgment()">Analyse + Build Case Graph</button>
+<button class="secondary" onclick="loadSuggested()">Use Standish fields</button>
+</div>
+
+<div class="card">
+<h2>Clean Case Brief</h2>
+<div id="brief" class="output small">Nothing generated yet.</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Synthesised Principles</h2>
+<div id="principles"></div>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>Cited Authorities</h2>
+<div id="authorities"></div>
+</div>
+<div class="card">
+<h2>Generated Revision Questions</h2>
+<div id="questions"></div>
+</div>
+</div>
+</div>
+
+<div id="cases" class="tabScreen" style="display:none">
+<div class="card">
+<h2>Cases</h2>
+<input id="caseSearch" placeholder="Search cases, citations, principles, notes..." oninput="renderCases()">
+<div id="caseList"></div>
+</div>
+</div>
+
+<div id="caseDetailScreen" class="tabScreen" style="display:none">
+<div class="card">
+<button class="secondary" onclick="showTab('cases')">Back to Cases</button>
+<div id="caseDetail"></div>
+</div>
+</div>
+
+<div id="graph" class="tabScreen" style="display:none">
+<div class="card">
+<h2>Case Graph</h2>
+<p class="small">Green = current/main case. Amber = needs review. Click a node to open its case card.</p>
+<div id="graphView"></div>
+</div>
+</div>
+
+<div id="export" class="tabScreen" style="display:none">
+<div class="grid">
+<div class="card">
+<h2>Export cases.json</h2>
+<textarea id="casesJson"></textarea>
+<button onclick="downloadJson('cases_v12.json', CASES)">Download cases_v12.json</button>
+</div>
+<div class="card">
+<h2>Export questions</h2>
+<textarea id="questionsJson"></textarea>
+<button onclick="downloadJson('generated_questions_v12.json', GENERATED_QUESTIONS)">Download questions_v12.json</button>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+let CASES=[];
+let GENERATED_QUESTIONS=[];
+let MAIN_CASE_ID=null;
+
+const KNOWN_CASES={
+"White v White":{citation:"[2000] UKHL 54",court:"UKHL",level:5,practiceArea:"Financial Remedies",tags:["sharing","fairness","non-discrimination"],principle:"Leading authority establishing fairness, non-discrimination between breadwinner and homemaker contributions, and equality as a cross-check.",examPoint:"Use for sharing and non-discrimination in financial remedy cases."},
+"Miller/McFarlane":{citation:"[2006] UKHL 24",court:"UKHL",level:5,practiceArea:"Financial Remedies",tags:["needs","compensation","sharing"],principle:"Identifies needs, compensation and sharing as the three principal strands of fairness.",examPoint:"Use to structure financial remedy submissions around needs, compensation and sharing."},
+"Miller v Miller":{citation:"[2006] UKHL 24",court:"UKHL",level:5,practiceArea:"Financial Remedies",tags:["sharing","short marriage","fairness"],principle:"Part of the conjoined Miller/McFarlane appeal; important for fairness and sharing.",examPoint:"Use with McFarlane for the fairness strands."},
+"McFarlane v McFarlane":{citation:"[2006] UKHL 24",court:"UKHL",level:5,practiceArea:"Financial Remedies",tags:["compensation","needs","sharing"],principle:"Important for compensation and relationship-generated disadvantage.",examPoint:"Use when discussing compensation for career disadvantage."},
+"K v L":{citation:"[2011] EWCA Civ 550",court:"CA",level:4,practiceArea:"Financial Remedies",tags:["matrimonialisation","non-matrimonial property"],principle:"Important authority on when the source of assets may diminish over time and circumstances in which non-matrimonial property may become matrimonial.",examPoint:"Use for the three non-exclusive situations often discussed in matrimonialisation."},
+"Charman v Charman":{citation:"[2007] EWCA Civ 503",court:"CA",level:4,practiceArea:"Financial Remedies",tags:["sharing","big money","non-matrimonial property"],principle:"Major big-money case discussing sharing and non-matrimonial property.",examPoint:"Use historically, but check later Supreme Court clarification."},
+"XW v XH":{citation:"[2019] EWCA Civ 2262",court:"CA",level:4,practiceArea:"Financial Remedies",tags:["non-matrimonial property","sharing"],principle:"Court of Appeal authority on non-matrimonial assets and sharing.",examPoint:"Use as part of the line distinguishing matrimonial and non-matrimonial property."},
+"JL v SL":{citation:"[2015] EWHC 360 (Fam)",court:"HC",level:3,practiceArea:"Financial Remedies",tags:["non-matrimonial property","sharing"],principle:"Mostyn J discussed the rarity of sharing non-matrimonial property under the sharing principle.",examPoint:"Useful for the 'white leopard' observation."},
+"WX v HX":{citation:"[2021] EWHC 241 (Fam)",court:"HC",level:3,practiceArea:"Financial Remedies",tags:["matrimonialisation"],principle:"Uses the language of matrimonialisation.",examPoint:"Use for terminology and development of the concept."},
+"N v F":{citation:"[2011] EWHC 586 (Fam)",court:"HC",level:3,practiceArea:"Financial Remedies",tags:["pre-acquired wealth","matrimonialisation"],principle:"Addresses pre-acquired wealth and treatment of assets.",examPoint:"Use for pre-marital wealth analysis."},
+"Stack v Dowden":{citation:"[2007] UKHL 17",court:"UKHL",level:5,practiceArea:"TLATA",tags:["beneficial interests","cohabitation","constructive trust"],principle:"Leading domestic co-ownership case; equity usually follows legal title unless contrary common intention is shown.",examPoint:"Use for beneficial interests in jointly owned domestic property."},
+"Jones v Kernott":{citation:"[2011] UKSC 53",court:"UKSC",level:5,practiceArea:"TLATA",tags:["beneficial interests","quantification"],principle:"Court may infer or impute intention when quantifying beneficial interests in a family home.",examPoint:"Use with Stack v Dowden for changing intentions and quantification."}
+};
+
+function showTab(id, btn){
+document.querySelectorAll(".tabScreen").forEach(x=>x.style.display="none");
+document.getElementById(id).style.display="block";
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+if(btn) btn.classList.add("active");
+if(id==="cases") renderCases();
+if(id==="graph") renderGraph();
+if(id==="export") renderExport();
+}
+
+function loadSuggested(){
+document.getElementById("caseName").value="Standish v Standish";
+document.getElementById("citation").value="[2025] UKSC";
+document.getElementById("practiceArea").value="Financial Remedies";
+}
+
+function cleanText(t){return t.replace(/\r/g,"").replace(/Page \d+/g,"").replace(/[“”]/g,'"').replace(/[‘’]/g,"'")}
+function extractParagraphs(text){
+const cleaned=cleanText(text);
+const regex=/(?:^|\n)\s*(\d{1,3})\.\s+([\s\S]*?)(?=\n\s*\d{1,3}\.\s+|$)/g;
+let out=[],m;
+while((m=regex.exec(cleaned))!==null) out.push({num:Number(m[1]),text:m[2].replace(/\s+/g," ").trim()});
+return out.length?out:cleaned.split(/\n+/).map((x,i)=>({num:i+1,text:x.trim()})).filter(x=>x.text);
+}
+function findParas(paras,patterns){return paras.filter(p=>patterns.some(rx=>rx.test(p.text)))}
+function norm(s){return String(s).toLowerCase().replace(/[^a-z0-9]/g,"").trim()}
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+function authorityClass(court){if(/UKSC|UKHL/i.test(court))return"uksc";if(/CA|EWCA/i.test(court))return"ca";if(/HC|EWHC/i.test(court))return"hc";return""}
+function authorityLabel(level){if(level>=5)return"Binding / apex authority";if(level===4)return"Binding unless displaced";if(level===3)return"Persuasive / first instance";return"Needs review"}
+
+function upsertCase(c){
+const idx=CASES.findIndex(x=>norm(x.name)===norm(c.name));
+if(idx>=0){
+const existing=CASES[idx];
+CASES[idx]={...existing,...c,notes:existing.notes||c.notes||"",citedBy:[...new Set([...(existing.citedBy||[]),...(c.citedBy||[])])],cites:[...new Set([...(existing.cites||[]),...(c.cites||[])])]};
+}else CASES.push(c);
+}
+
+function extractAuthorities(text){
+let patterns=Object.keys(KNOWN_CASES).concat(["Unger v Ul-Hasan","ARQ v YAQ"]);
+let found=[];
+patterns.forEach(name=>{if(new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i").test(text))found.push(name)});
+[...text.matchAll(/\b([A-Z][A-Za-z-]+ v [A-Z][A-Za-z-]+(?: \(No \d\))?)\b/g)].forEach(m=>found.push(m[1]));
+return [...new Map(found.map(x=>[norm(x),x])).values()];
+}
+
+function extractPrinciples(paras){
+let out=[];
+function add(cat,text,source,type="ratio"){if(!out.some(x=>norm(x.text)===norm(text)))out.push({category:cat,text,source,type})}
+if(findParas(paras,[/conceptual distinction.*matrimonial.*non-matrimonial/i,/source.*assets/i]).length)add("Non-matrimonial property","There is a conceptual distinction between matrimonial and non-matrimonial property. The distinction generally turns on source rather than legal title.","§47","ratio");
+if(findParas(paras,[/non-matrimonial property should not be subject to the sharing principle/i,/sharing principle only applies to matrimonial/i]).length)add("Sharing principle","The sharing principle applies to matrimonial property and does not apply to non-matrimonial property, although non-matrimonial property may still be relevant to needs or compensation.","§48-49","ratio");
+if(findParas(paras,[/sharing.*matrimonial property.*equal basis/i,/normally be on an equal basis/i]).length)add("Equality","Matrimonial property should normally be shared equally, subject to justified departure.","§50","ratio");
+if(findParas(paras,[/what starts as non-matrimonial property may become matrimonial/i,/matrimonialisation/i]).length)add("Matrimonialisation","Non-matrimonial property may become matrimonial property through matrimonialisation.","§51","ratio");
+if(findParas(paras,[/treating the asset as shared/i,/over time.*shared/i,/sufficiently long/i]).length)add("Matrimonialisation","Matrimonialisation depends on whether the parties have treated the asset as shared between them over a sufficiently settled period.","§52-54","ratio");
+if(findParas(paras,[/scheme designed to save tax/i,/intention is simply to save tax/i,/tax planning/i]).length)add("Tax planning transfers","A tax-planning transfer between spouses will not normally show that the transferred asset is being treated as shared matrimonial property.","§56","ratio");
+if(findParas(paras,[/title.*not determinative/i,/not determinative.*title/i]).length)add("Title vs source","Legal title is not determinative when characterising assets as matrimonial or non-matrimonial.","§47","ratio");
+return out;
+}
+
+function analyseJudgment(){
+const raw=document.getElementById("sourceText").value.trim();
+if(!raw)return alert("Paste the judgment first.");
+const text=cleanText(raw),paras=extractParagraphs(text);
+const main=document.getElementById("caseName").value.trim()||"Generated Case";
+const citation=document.getElementById("citation").value.trim()||"[citation needed]";
+const area=document.getElementById("practiceArea").value.trim()||"General";
+const mainId=slug(main); MAIN_CASE_ID=mainId;
+
+const principles=extractPrinciples(paras);
+const authorities=extractAuthorities(text).filter(a=>norm(a)!==norm(main));
+const issue=findParas(paras,[/essential question/i,/we must determine/i,/On this appeal/i])[0];
+const outcome=findParas(paras,[/dismiss the appeal/i,/court of appeal was correct/i,/not subject to the sharing principle/i,/no matrimonialisation/i]).slice(-3);
+
+upsertCase({
+id:mainId,name:main,citation,practiceArea:area,court:detectCourt(citation),level:detectLevel(citation),tags:["sharing principle","non-matrimonial property","matrimonialisation","financial remedies"],principle:principles.map(p=>p.text).join(" "),facts:issue?issue.text:"Facts extracted from judgment.",examPoint:"Use for the limits of the sharing principle and the test for matrimonialisation.",outcome:outcome.map(p=>p.text).join(" "),needsReview:false,cites:authorities,citedBy:[],notes:"",quiz:[]
+});
+
+authorities.forEach(a=>{
+const k=KNOWN_CASES[a];
+if(k){
+upsertCase({id:slug(a),name:a,citation:k.citation,court:k.court,level:k.level,practiceArea:k.practiceArea,tags:k.tags,principle:k.principle,facts:"Saved as a cited authority. Add full facts if useful.",examPoint:k.examPoint,citedBy:[main],cites:[],needsReview:false,notes:"",quiz:[]});
+}else{
+upsertCase({id:slug(a),name:a,citation:"Citation not extracted",court:"Unknown",level:1,practiceArea:area,tags:["cited authority","needs review"],principle:"Detected as a cited authority. Add a verified explanation before relying on it.",facts:`Cited in ${main}.`,examPoint:"Needs manual review.",citedBy:[main],cites:[],needsReview:true,notes:"",quiz:[]});
+}
+});
+
+GENERATED_QUESTIONS=buildQuestions(main);
+document.getElementById("brief").textContent=`CASE BRIEF
+
+Case: ${main}
+Citation: ${citation}
+Authority level: ${authorityLabel(detectLevel(citation))}
+Practice area: ${area}
+
+Issue:
+${issue?`§${issue.num}: ${issue.text}`:"Issue not detected."}
+
+Holding:
+${outcome.length?outcome.map(p=>`§${p.num}: ${p.text}`).join("\n\n"):"Outcome not detected."}
+
+One-line takeaway:
+The case clarifies the relationship between sharing, non-matrimonial property and matrimonialisation.`;
+
+document.getElementById("principles").innerHTML=principles.map((p,i)=>`<div class="item"><span class="badge">${p.category}</span><span class="badge">${p.type}</span><h3>${i+1}. ${p.text}</h3><p class="small">Source: ${p.source}</p></div>`).join("");
+
+document.getElementById("authorities").innerHTML=authorities.map(a=>{
+const c=CASES.find(x=>norm(x.name)===norm(a));
+return `<div class="case-card" onclick="openCase('${c.id}')"><h3>${a} ${c.needsReview?'<span class="badge warn">needs review</span>':""}</h3><span class="badge ${authorityClass(c.court)}">${c.court}</span><span class="badge">${authorityLabel(c.level)}</span><p class="small">${c.principle}</p></div>`;
+}).join("");
+
+renderQuestions();
+renderCases();
+renderGraph();
+renderExport();
+}
+
+function detectCourt(citation){if(/UKSC|UKHL/i.test(citation))return citation.match(/UKSC|UKHL/i)[0].toUpperCase();if(/EWCA/i.test(citation))return"CA";if(/EWHC/i.test(citation))return"HC";return"Unknown"}
+function detectLevel(citation){if(/UKSC|UKHL/i.test(citation))return 5;if(/EWCA/i.test(citation))return 4;if(/EWHC/i.test(citation))return 3;return 1}
+
+function buildQuestions(main){return[
+{q:`What is the main significance of ${main}?`,options:["It clarifies the limits of the sharing principle and the test for matrimonialisation","It abolishes financial remedy discretion","It makes title decisive in every case","It prevents needs-based awards"],answer:0,explain:"The case clarifies that sharing applies to matrimonial property and explains matrimonialisation."},
+{q:"What is central to matrimonialisation?",options:["The parties treating the asset as shared over time","A one-off transfer for tax planning","The asset being outside England","The payer having high income"],answer:0,explain:"The central inquiry is treatment of the asset as shared over time."},
+{q:"How should a tax-planning transfer normally be treated?",options:["It does not normally show that the asset is shared matrimonial property","It always matrimonialises the asset","It is automatically void","It removes the asset from section 25"],answer:0,explain:"A tax-saving purpose does not itself demonstrate shared treatment."}
+]}
+
+function renderQuestions(){document.getElementById("questions").innerHTML=GENERATED_QUESTIONS.map((q,i)=>`<div class="item"><h3>Q${i+1}. ${q.q}</h3><ol type="A">${q.options.map(o=>`<li>${o}</li>`).join("")}</ol><p class="small"><strong>Answer:</strong> ${q.options[q.answer]}</p><p class="small">${q.explain}</p></div>`).join("")}
+
+function renderCases(){
+const el=document.getElementById("caseList");if(!el)return;
+const q=(document.getElementById("caseSearch")?.value||"").toLowerCase();
+el.innerHTML="";
+CASES.filter(c=>[c.name,c.citation,c.practiceArea,c.principle,c.examPoint,c.notes,...(c.tags||[])].join(" ").toLowerCase().includes(q)).forEach(c=>{
+el.innerHTML+=`<div class="case-card" onclick="openCase('${c.id}')"><h3>${c.name} ${c.needsReview?'<span class="badge warn">needs review</span>':""}</h3><p class="small">${c.citation} · ${c.practiceArea}</p><span class="badge ${authorityClass(c.court)}">${c.court}</span><span class="badge">${authorityLabel(c.level)}</span><p class="principle">${c.principle}</p><p class="small"><strong>Cited by:</strong> ${(c.citedBy||[]).join(", ")||"—"}</p></div>`;
+});
+}
+
+function openCase(id){
+const c=CASES.find(x=>x.id===id);if(!c)return;
+showTab("caseDetailScreen");
+document.getElementById("caseDetail").innerHTML=`<button class="secondary" onclick="showTab('cases')">Back to Cases</button><h2>${c.name}</h2><p class="small">${c.citation} · ${c.practiceArea}</p><span class="badge ${authorityClass(c.court)}">${c.court}</span><span class="badge">${authorityLabel(c.level)}</span>${c.needsReview?'<span class="badge warn">needs review</span>':""}<h3>Principle</h3><p class="principle">${c.principle}</p><h3>Exam / Practice Point</h3><p>${c.examPoint}</p><h3>Cites</h3><p>${(c.cites||[]).map(x=>`<span class="node" onclick="openCaseByName('${x}')">${x}</span>`).join("")||"—"}</p><h3>Cited By</h3><p>${(c.citedBy||[]).map(x=>`<span class="node" onclick="openCaseByName('${x}')">${x}</span>`).join("")||"—"}</p><h3>Your Practitioner Notes</h3><textarea id="noteBox">${c.notes||""}</textarea><button onclick="saveNote('${c.id}')">Save note</button>`;
+}
+
+function openCaseByName(name){const c=CASES.find(x=>norm(x.name)===norm(name));if(c)openCase(c.id);else alert("Case not in database yet.")}
+function saveNote(id){const c=CASES.find(x=>x.id===id);if(c){c.notes=document.getElementById("noteBox").value;renderExport();alert("Note saved locally.")}}
+
+function renderGraph(){
+const el=document.getElementById("graphView");if(!el)return;
+if(!MAIN_CASE_ID){el.innerHTML="<p class='small'>Analyse a judgment first to build the graph.</p>";return;}
+const main=CASES.find(c=>c.id===MAIN_CASE_ID);
+if(!main){el.innerHTML="<p class='small'>No main case found.</p>";return;}
+el.innerHTML=`<h3>Main authority</h3><span class="node root" onclick="openCase('${main.id}')">${main.name}</span><h3>Cites</h3>${(main.cites||[]).map(name=>{let c=CASES.find(x=>norm(x.name)===norm(name));return `<span class="node ${c?.needsReview?'warn':''}" onclick="${c?`openCase('${c.id}')`:""}">${name}</span>`}).join("")||"<p class='small'>No cited cases detected.</p>"}`;
+}
+
+function renderExport(){document.getElementById("casesJson").value=JSON.stringify(CASES,null,2);document.getElementById("questionsJson").value=JSON.stringify(GENERATED_QUESTIONS,null,2)}
+function downloadJson(name,data){const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
+</script>
+</body>
+</html>
