@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LawLingo</title>
+
+<style>
+:root{
+--bg:#f5f7fb;
+--card:#ffffff;
+--text:#0f172a;
+--muted:#64748b;
+--primary:#1d4ed8;
+--accent:#3b82f6;
+--border:#e2e8f0;
+}
+
+*{box-sizing:border-box}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px 24px;
+background:
+radial-gradient(circle at top left,#60a5fa 0%,#2563eb 40%,#0f172a 100%);
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:rgba(255,255,255,.05);
+border-radius:50%;
+top:-300px;
+right:-200px;
+}
+
+.hero-inner{
+max-width:1200px;
+width:100%;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:40px;
+align-items:center;
+position:relative;
+z-index:2;
+}
+
+@media(max-width:900px){
+.hero-inner{
+grid-template-columns:1fr;
+text-align:center;
+}
+}
+
+.logo{
+font-size:4rem;
+font-weight:900;
+letter-spacing:-.05em;
+margin:0 0 18px;
+}
+
+.tag{
+font-size:1.2rem;
+line-height:1.7;
+opacity:.95;
+max-width:620px;
+}
+
+.hero-buttons{
+margin-top:28px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+@media(max-width:900px){
+.hero-buttons{
+justify-content:center;
+}
+}
+
+button,a.cta{
+border:0;
+padding:15px 22px;
+border-radius:16px;
+font-size:1rem;
+font-weight:800;
+cursor:pointer;
+text-decoration:none;
+transition:.2s ease;
+}
+
+.primary{
+background:white;
+color:#1d4ed8;
+}
+
+.secondary{
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.22);
+color:white;
+backdrop-filter:blur(12px);
+}
+
+.primary:hover,.secondary:hover{
+transform:translateY(-2px);
+}
+
+.hero-card{
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+backdrop-filter:blur(18px);
+border-radius:28px;
+padding:28px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.graphic{
+display:grid;
+gap:18px;
+}
+
+.mock{
+background:rgba(255,255,255,.12);
+border-radius:22px;
+padding:18px;
+}
+
+.mock-title{
+font-weight:800;
+margin-bottom:12px;
+}
+
+.bar{
+height:10px;
+border-radius:999px;
+background:rgba(255,255,255,.15);
+overflow:hidden;
+margin-bottom:14px;
+}
+
+.bar span{
+display:block;
+height:100%;
+width:72%;
+background:linear-gradient(90deg,#93c5fd,#ffffff);
+border-radius:999px;
+}
+
+.badges{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.badge{
+background:rgba(255,255,255,.14);
+padding:8px 12px;
+border-radius:999px;
+font-size:.9rem;
+font-weight:700;
+}
+
+.dashboard{
+margin-top:-80px;
+position:relative;
+z-index:5;
+padding:0 22px 60px;
+}
+
+.wrap{
+max-width:1200px;
+margin:auto;
+}
+
+.panel{
+background:white;
+border:1px solid var(--border);
+border-radius:32px;
+padding:26px;
+box-shadow:0 20px 50px rgba(15,23,42,.08);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+margin-bottom:26px;
+}
+
+@media(max-width:900px){
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+.stat{
+background:#f8fafc;
+border:1px solid var(--border);
+border-radius:22px;
+padding:20px;
+}
+
+.stat-label{
+color:var(--muted);
+font-size:.92rem;
+margin-bottom:8px;
+}
+
+.stat-value{
+font-size:2rem;
+font-weight:900;
+}
+
+.section-title{
+font-size:1.4rem;
+font-weight:900;
+margin:10px 0 18px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:18px;
+}
+
+.card{
+background:white;
+border:1px solid var(--border);
+border-radius:24px;
+padding:22px;
+transition:.2s ease;
+}
+
+.card:hover{
+transform:translateY(-4px);
+border-color:#bfdbfe;
+box-shadow:0 18px 40px rgba(59,130,246,.08);
+}
+
+.card h3{
+margin-top:0;
+margin-bottom:10px;
+font-size:1.2rem;
+}
+
+.card p{
+color:var(--muted);
+line-height:1.6;
+}
+
+.pill{
+display:inline-block;
+padding:7px 12px;
+background:#dbeafe;
+color:#1d4ed8;
+border-radius:999px;
+font-size:.85rem;
+font-weight:800;
+margin-top:10px;
+}
+
+.footer-space{
+height:60px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div>
+
+<h1 class="logo">⚖️ LawLingo</h1>
+
+<p class="tag">
+A cleaner, modern legal revision workspace designed for family law,
+case analysis, adaptive learning and judgment review.
+</p>
+
+<div class="hero-buttons">
+<a href="#dashboard" class="cta primary">Enter Dashboard</a>
+<a href="#dashboard" class="cta secondary">Continue Revision</a>
+</div>
+
+</div>
+
+<div class="hero-card">
+
+<div class="graphic">
+
+<div class="mock">
+<div class="mock-title">Financial Remedies</div>
+<div class="bar"><span></span></div>
+
+<div class="badges">
+<div class="badge">Sharing Principle</div>
+<div class="badge">Section 25</div>
+<div class="badge">Matrimonialisation</div>
+</div>
+</div>
+
+<div class="mock">
+<div class="mock-title">Children Law</div>
+<div class="bar"><span style="width:58%"></span></div>
+
+<div class="badges">
+<div class="badge">PD12J</div>
+<div class="badge">Welfare</div>
+<div class="badge">Section 8</div>
+</div>
+</div>
+
+<div class="mock">
+<div class="mock-title">Case Analysis</div>
+
+<div class="badges">
+<div class="badge">PDF Upload</div>
+<div class="badge">Authority Detection</div>
+<div class="badge">Adaptive Revision</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dashboard" id="dashboard">
+
+<div class="wrap">
+
+<div class="panel">
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-label">XP</div>
+<div class="stat-value">420</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">Streak</div>
+<div class="stat-value">14</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">Cases Saved</div>
+<div class="stat-value">32</div>
+</div>
+
+<div class="stat">
+<div class="stat-label">Questions</div>
+<div class="stat-value">248</div>
+</div>
+
+</div>
+
+<h2 class="section-title">Practice Areas</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>👨‍👩‍👧 Children Law</h3>
+<p>
+Welfare principle, section 8 orders, PD12J,
+public law and safeguarding.
+</p>
+<div class="pill">Adaptive Revision</div>
+</div>
+
+<div class="card">
+<h3>💷 Financial Remedies</h3>
+<p>
+Needs, sharing, compensation,
+pensions and section 25 MCA 1973.
+</p>
+<div class="pill">Case Graph Enabled</div>
+</div>
+
+<div class="card">
+<h3>🏡 TLATA</h3>
+<p>
+Beneficial interests, common intention,
+Stack v Dowden and Jones v Kernott.
+</p>
+<div class="pill">Flashcards Ready</div>
+</div>
+
+<div class="card">
+<h3>📄 Judgment Upload</h3>
+<p>
+Upload PDFs and automatically generate:
+principles, authorities and revision notes.
+</p>
+<div class="pill">PDF Intake Engine</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="footer-space"></div>
+
+</body>
+</html>
