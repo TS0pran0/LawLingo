@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LawLingo Mobile</title>
+<style>
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --primary:#2563eb;
+  --primary2:#60a5fa;
+  --border:#e2e8f0;
+}
+.dark{
+  --bg:#07111f;
+  --card:#0f172a;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --primary:#60a5fa;
+  --primary2:#93c5fd;
+  --border:#1e293b;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+body{
+  min-height:100vh;
+}
+.app{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  overflow:hidden;
+  background:var(--bg);
+}
+.topbar{
+  position:fixed;
+  top:calc(env(safe-area-inset-top) + 10px);
+  left:50%;
+  transform:translateX(-50%);
+  width:min(398px,calc(100vw - 24px));
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:9px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.84);
+  border:1px solid rgba(226,232,240,.8);
+  backdrop-filter:blur(16px);
+  box-shadow:0 12px 34px rgba(15,23,42,.14);
+}
+.dark .topbar{
+  background:rgba(15,23,42,.84);
+}
+.brand{
+  font-weight:950;
+  font-size:.95rem;
+  letter-spacing:-.04em;
+  white-space:nowrap;
+}
+.top-actions{
+  display:flex;
+  gap:6px;
+}
+.icon-btn{
+  border:0;
+  border-radius:999px;
+  padding:8px 10px;
+  background:#eef2ff;
+  color:#1e3a8a;
+  font-weight:900;
+  font-size:.82rem;
+}
+.dark .icon-btn{
+  background:#172554;
+  color:#bfdbfe;
+}
+.hero{
+  min-height:100vh;
+  padding:94px 20px 36px;
+  background:
+    radial-gradient(circle at top left,rgba(96,165,250,.95),transparent 38%),
+    linear-gradient(145deg,#1d4ed8 0%,#1e3a8a 48%,#0f172a 100%);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.kicker{
+  display:inline-flex;
+  align-self:flex-start;
+  padding:8px 12px;
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  font-weight:850;
+  font-size:.88rem;
+  margin-bottom:18px;
+}
+h1{
+  margin:0;
+  font-size:3.9rem;
+  line-height:.95;
+  letter-spacing:-.075em;
+}
+.tagline{
+  margin:18px 0 24px;
+  font-size:1.08rem;
+  line-height:1.6;
+  opacity:.94;
+}
+.hero-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:24px;
+}
+.cta{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:52px;
+  border-radius:17px;
+  text-decoration:none;
+  font-weight:950;
+}
+.cta.primary{
+  background:white;
+  color:#1d4ed8;
+}
+.cta.secondary{
+  color:white;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.24);
+}
+.hero-card{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:30px;
+  padding:18px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 60px rgba(0,0,0,.25);
+}
+.scale-svg{
+  display:flex;
+  justify-content:center;
+  margin:8px 0 16px;
+}
+.mock-list{
+  display:grid;
+  gap:10px;
+}
+.mock-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:18px;
+  padding:12px;
+}
+.mock-row strong{
+  display:block;
+  font-size:.94rem;
+}
+.mock-row span{
+  opacity:.75;
+  font-size:.82rem;
+}
+.mini-bar{
+  width:76px;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  overflow:hidden;
+  flex:0 0 auto;
+}
+.mini-bar i{
+  display:block;
+  height:100%;
+  background:white;
+  border-radius:999px;
+}
+.dashboard{
+  padding:18px 14px 92px;
+  margin-top:-18px;
+  border-radius:28px 28px 0 0;
+  background:var(--bg);
+  position:relative;
+}
+.panel{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:16px;
+  box-shadow:0 18px 42px rgba(15,23,42,.08);
+}
+.section-title{
+  margin:4px 0 4px;
+  font-size:1.35rem;
+  letter-spacing:-.04em;
+}
+.section-sub{
+  margin:0 0 16px;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:.94rem;
+}
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:18px;
+}
+.stat{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:14px;
+}
+.dark .stat{
+  background:#111827;
+}
+.stat-label{
+  color:var(--muted);
+  font-size:.8rem;
+  font-weight:800;
+  margin-bottom:5px;
+}
+.stat-value{
+  font-size:1.6rem;
+  font-weight:950;
+}
+.topic-card{
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:15px;
+  background:var(--card);
+  margin-bottom:12px;
+}
+.topic-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+.topic-card h3{
+  margin:0 0 6px;
+  font-size:1.08rem;
+}
+.topic-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:.93rem;
+}
+.chev{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:#eef2ff;
+  color:#1e3a8a;
+  font-weight:950;
+  flex:0 0 auto;
+}
+.dark .chev{
+  background:#172554;
+  color:#bfdbfe;
+}
+.topic-extra{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .25s ease;
+}
+.topic-card.open .topic-extra{
+  max-height:180px;
+}
+.pill{
+  display:inline-flex;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#dbeafe;
+  color:#1d4ed8;
+  font-size:.78rem;
+  font-weight:900;
+  margin:12px 6px 0 0;
+}
+.dark .pill{
+  background:#172554;
+  color:#bfdbfe;
+}
+.graph-card,.calendar-card{
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:15px;
+  background:var(--card);
+}
+.graph-stage{
+  height:210px;
+  position:relative;
+  margin-top:8px;
+  background:linear-gradient(180deg,rgba(96,165,250,.08),transparent);
+  border-radius:20px;
+}
+.node{
+  position:absolute;
+  padding:8px 11px;
+  border-radius:999px;
+  background:var(--card);
+  border:1px solid var(--border);
+  font-size:.78rem;
+  font-weight:950;
+  box-shadow:0 10px 24px rgba(15,23,42,.10);
+}
+.node.main{
+  background:#dcfce7;
+  color:#166534;
+  border-color:#86efac;
+  left:50%;
+  top:82px;
+  transform:translateX(-50%);
+}
+.node.n1{left:20px;top:34px}
+.node.n2{right:20px;top:34px}
+.node.n3{left:42px;bottom:36px}
+.node.n4{right:42px;bottom:36px}
+.line{
+  position:absolute;
+  height:2px;
+  background:rgba(37,99,235,.25);
+  transform-origin:left center;
+}
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:7px;
+  margin-top:10px;
+}
+.day{
+  aspect-ratio:1;
+  border-radius:12px;
+  background:#f1f5f9;
+  color:var(--muted);
+  display:grid;
+  place-items:center;
+  font-size:.75rem;
+  font-weight:900;
+}
+.dark .day{
+  background:#111827;
+}
+.day.done{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+.day.hot{
+  background:#2563eb;
+  color:white;
+}
+.bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:calc(env(safe-area-inset-bottom) + 12px);
+  transform:translateX(-50%);
+  width:min(398px,calc(100vw - 24px));
+  z-index:50;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+  padding:8px;
+  border-radius:24px;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(226,232,240,.85);
+  backdrop-filter:blur(16px);
+  box-shadow:0 18px 40px rgba(15,23,42,.18);
+}
+.dark .bottom-nav{
+  background:rgba(15,23,42,.88);
+}
+.bottom-nav a{
+  text-align:center;
+  text-decoration:none;
+  color:var(--text);
+  font-size:.72rem;
+  font-weight:850;
+  padding:8px 4px;
+  border-radius:16px;
+}
+.bottom-nav a:hover{
+  background:rgba(96,165,250,.14);
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<nav class="topbar">
+  <div class="brand">⚖️ LawLingo</div>
+  <div class="top-actions">
+    <button class="icon-btn" onclick="toggleDark()">Dark</button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="kicker">Legal revision, reimagined</div>
+  <h1>LawLingo</h1>
+  <p class="tagline">
+    A clean legal learning workspace for revision, judgments, case law,
+    adaptive recall and practitioner-focused notes.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#dashboard" class="cta primary">Dashboard</a>
+    <a href="#topics" class="cta secondary">Topics</a>
+  </div>
+
+  <div class="hero-card">
+    <div class="scale-svg">
+      <svg width="210" height="150" viewBox="0 0 330 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="54" y="22" width="222" height="162" rx="24" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.35)" />
+        <path d="M165 50V155" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M118 78H212" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M118 78L88 134H148L118 78Z" fill="rgba(255,255,255,.16)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M212 78L182 134H242L212 78Z" fill="rgba(255,255,255,.16)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M118 176H212" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M98 198H232" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="68" cy="42" r="8" fill="#bfdbfe"/>
+        <circle cx="262" cy="171" r="10" fill="#bfdbfe"/>
+      </svg>
+    </div>
+
+    <div class="mock-list">
+      <div class="mock-row">
+        <div><strong>Financial Remedies</strong><span>Sharing principle</span></div>
+        <div class="mini-bar"><i style="width:74%"></i></div>
+      </div>
+      <div class="mock-row">
+        <div><strong>Children Law</strong><span>PD12J due</span></div>
+        <div class="mini-bar"><i style="width:58%"></i></div>
+      </div>
+      <div class="mock-row">
+        <div><strong>Case Graph</strong><span>12 authorities</span></div>
+        <div class="mini-bar"><i style="width:82%"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard" id="dashboard">
+  <div class="panel">
+    <h2 class="section-title">Main dashboard</h2>
+    <p class="section-sub">Your legal revision overview at a glance.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-label">XP</div><div class="stat-value">420</div></div>
+      <div class="stat"><div class="stat-label">Streak</div><div class="stat-value">14</div></div>
+      <div class="stat"><div class="stat-label">Cases</div><div class="stat-value">32</div></div>
+      <div class="stat"><div class="stat-label">Questions</div><div class="stat-value">248</div></div>
+    </div>
+
+    <h2 class="section-title" id="topics">Practice areas</h2>
+    <p class="section-sub">Expandable topic cards optimised for mobile.</p>
+
+    <div class="topic-card">
+      <div class="topic-top" onclick="toggleCard(this)">
+        <div><h3>👨‍👩‍👧 Children Law</h3><p>Welfare, child arrangements, PD12J and safeguarding.</p></div>
+        <div class="chev">+</div>
+      </div>
+      <div class="topic-extra">
+        <span class="pill">Children Act</span><span class="pill">PD12J</span><span class="pill">Fact-finds</span>
+        <p>Recommended: welfare checklist and domestic abuse allegations.</p>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-top" onclick="toggleCard(this)">
+        <div><h3>💷 Financial Remedies</h3><p>Needs, sharing, compensation, section 25 and pensions.</p></div>
+        <div class="chev">+</div>
+      </div>
+      <div class="topic-extra">
+        <span class="pill">White</span><span class="pill">Miller</span><span class="pill">Standish</span>
+        <p>Recommended: matrimonialisation and non-matrimonial property.</p>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-top" onclick="toggleCard(this)">
+        <div><h3>🏡 TLATA</h3><p>Constructive trusts, beneficial interests and cohabitation.</p></div>
+        <div class="chev">+</div>
+      </div>
+      <div class="topic-extra">
+        <span class="pill">Stack</span><span class="pill">Jones</span><span class="pill">Estoppel</span>
+        <p>Recommended: quantification and common intention questions.</p>
+      </div>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-top" onclick="toggleCard(this)">
+        <div><h3>📄 Judgment Upload</h3><p>Upload PDFs and extract principles, citations and authorities.</p></div>
+        <div class="chev">+</div>
+      </div>
+      <div class="topic-extra">
+        <span class="pill">PDF Intake</span><span class="pill">Case Briefs</span><span class="pill">Authority Map</span>
+        <p>Recommended: upload one judgment each week and add notes.</p>
+      </div>
+    </div>
+
+    <div class="graph-card" id="graph">
+      <h2 class="section-title">Case graph</h2>
+      <p class="section-sub">Visual link between leading authorities.</p>
+      <div class="graph-stage">
+        <div class="line" style="width:110px;left:86px;top:86px;transform:rotate(22deg)"></div>
+        <div class="line" style="width:110px;right:86px;top:86px;transform:rotate(158deg)"></div>
+        <div class="line" style="width:110px;left:88px;bottom:78px;transform:rotate(-22deg)"></div>
+        <div class="line" style="width:110px;right:88px;bottom:78px;transform:rotate(202deg)"></div>
+        <div class="node main">Standish</div>
+        <div class="node n1">White</div>
+        <div class="node n2">K v L</div>
+        <div class="node n3">Charman</div>
+        <div class="node n4">Miller</div>
+      </div>
+    </div>
+
+    <div class="calendar-card" id="calendar">
+      <h2 class="section-title">Revision calendar</h2>
+      <p class="section-sub">Visual history of your revision activity.</p>
+      <div class="days">
+        <div class="day done">M</div><div class="day done">T</div><div class="day hot">W</div><div class="day done">T</div><div class="day">F</div><div class="day">S</div><div class="day">S</div>
+        <div class="day done">M</div><div class="day hot">T</div><div class="day done">W</div><div class="day">T</div><div class="day">F</div><div class="day done">S</div><div class="day">S</div>
+        <div class="day hot">M</div><div class="day done">T</div><div class="day">W</div><div class="day done">T</div><div class="day">F</div><div class="day">S</div><div class="day">S</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <a href="#top">Home</a>
+  <a href="#topics">Topics</a>
+  <a href="#graph">Graph</a>
+  <a href="#calendar">Calendar</a>
+</nav>
+
+</div>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+function toggleCard(el){
+  const card=el.closest(".topic-card");
+  card.classList.toggle("open");
+  el.querySelector(".chev").textContent=card.classList.contains("open")?"−":"+";
+}
+</script>
+</body>
+</html>
