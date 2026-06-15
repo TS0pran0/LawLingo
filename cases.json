@@ -1,0 +1,37 @@
+[
+  {
+    "id": "white-v-white",
+    "name": "White v White",
+    "citation": "[2000] UKHL 54",
+    "court": "UKHL",
+    "level": 5,
+    "practiceArea": "Financial Remedies",
+    "tags": [
+      "sharing",
+      "fairness"
+    ],
+    "principle": "Leading authority on fairness, non-discrimination and the sharing principle.",
+    "examPoint": "Use for equality cross-check and non-discrimination between financial and domestic contributions.",
+    "notes": "",
+    "cites": [],
+    "citedBy": []
+  },
+  {
+    "id": "miller-mcfarlane",
+    "name": "Miller/McFarlane",
+    "citation": "[2006] UKHL 24",
+    "court": "UKHL",
+    "level": 5,
+    "practiceArea": "Financial Remedies",
+    "tags": [
+      "needs",
+      "compensation",
+      "sharing"
+    ],
+    "principle": "Identifies needs, compensation and sharing as strands of fairness.",
+    "examPoint": "Use to structure financial remedy submissions.",
+    "notes": "",
+    "cites": [],
+    "citedBy": []
+  }
+]
