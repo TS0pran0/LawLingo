@@ -1,0 +1,3050 @@
+[
+  {
+    "id": "children_law",
+    "title": "Children Law",
+    "topics": [
+      {
+        "id": "welfare_principle",
+        "title": "Welfare Principle",
+        "questions": [
+          {
+            "id": 1,
+            "q": "What is the paramount consideration under section 1 CA 1989? (1)",
+            "options": [
+              "A bankruptcy petition",
+              "Automatic equal division",
+              "The child's welfare",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 2,
+            "q": "What is the paramount consideration under section 1 CA 1989? (2)",
+            "options": [
+              "The child's welfare",
+              "Automatic equal division",
+              "The claimant's preference",
+              "A freezing injunction"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 3,
+            "q": "What is the paramount consideration under section 1 CA 1989? (3)",
+            "options": [
+              "A decree absolute",
+              "The overriding objective",
+              "The child's welfare",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 4,
+            "q": "What is the paramount consideration under section 1 CA 1989? (4)",
+            "options": [
+              "A decree absolute",
+              "The child's welfare",
+              "The overriding objective",
+              "Judicial convenience"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 5,
+            "q": "What is the paramount consideration under section 1 CA 1989? (5)",
+            "options": [
+              "A pension sharing order",
+              "Specific disclosure",
+              "A decree absolute",
+              "The child's welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 6,
+            "q": "What is the paramount consideration under section 1 CA 1989? (6)",
+            "options": [
+              "The child's welfare",
+              "Criminal sentencing",
+              "A decree absolute",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 7,
+            "q": "What is the paramount consideration under section 1 CA 1989? (7)",
+            "options": [
+              "Specific disclosure",
+              "A decree absolute",
+              "The overriding objective",
+              "The child's welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 8,
+            "q": "What is the paramount consideration under section 1 CA 1989? (8)",
+            "options": [
+              "The child's welfare",
+              "A bankruptcy petition",
+              "Specific disclosure",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 9,
+            "q": "What is the paramount consideration under section 1 CA 1989? (9)",
+            "options": [
+              "The child's welfare",
+              "Specific disclosure",
+              "Judicial convenience",
+              "The overriding objective"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 10,
+            "q": "What is the paramount consideration under section 1 CA 1989? (10)",
+            "options": [
+              "The child's welfare",
+              "The overriding objective",
+              "A freezing injunction",
+              "Specific disclosure"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The child's welfare."
+          },
+          {
+            "id": 11,
+            "q": "What principle states delay is likely to prejudice welfare? (1)",
+            "options": [
+              "A freezing injunction",
+              "Judicial convenience",
+              "A bankruptcy petition",
+              "The no-delay principle"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 12,
+            "q": "What principle states delay is likely to prejudice welfare? (2)",
+            "options": [
+              "The claimant's preference",
+              "A decree absolute",
+              "The no-delay principle",
+              "A pension sharing order"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 13,
+            "q": "What principle states delay is likely to prejudice welfare? (3)",
+            "options": [
+              "The no-delay principle",
+              "A freezing injunction",
+              "A decree absolute",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 14,
+            "q": "What principle states delay is likely to prejudice welfare? (4)",
+            "options": [
+              "Automatic equal division",
+              "A pension sharing order",
+              "The no-delay principle",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 15,
+            "q": "What principle states delay is likely to prejudice welfare? (5)",
+            "options": [
+              "Specific disclosure",
+              "The overriding objective",
+              "The claimant's preference",
+              "The no-delay principle"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 16,
+            "q": "What principle states delay is likely to prejudice welfare? (6)",
+            "options": [
+              "Judicial convenience",
+              "The no-delay principle",
+              "Automatic equal division",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 17,
+            "q": "What principle states delay is likely to prejudice welfare? (7)",
+            "options": [
+              "The no-delay principle",
+              "Specific disclosure",
+              "The overriding objective",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 18,
+            "q": "What principle states delay is likely to prejudice welfare? (8)",
+            "options": [
+              "The overriding objective",
+              "Automatic equal division",
+              "The no-delay principle",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 19,
+            "q": "What principle states delay is likely to prejudice welfare? (9)",
+            "options": [
+              "Automatic equal division",
+              "A freezing injunction",
+              "The no-delay principle",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 20,
+            "q": "What principle states delay is likely to prejudice welfare? (10)",
+            "options": [
+              "A bankruptcy petition",
+              "A decree absolute",
+              "Judicial convenience",
+              "The no-delay principle"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The no-delay principle."
+          },
+          {
+            "id": 21,
+            "q": "What does the welfare checklist contain? (1)",
+            "options": [
+              "A freezing injunction",
+              "Specific disclosure",
+              "A pension sharing order",
+              "Factors relevant to child welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 22,
+            "q": "What does the welfare checklist contain? (2)",
+            "options": [
+              "Automatic equal division",
+              "Factors relevant to child welfare",
+              "Criminal sentencing",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 23,
+            "q": "What does the welfare checklist contain? (3)",
+            "options": [
+              "Factors relevant to child welfare",
+              "Specific disclosure",
+              "A bankruptcy petition",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 24,
+            "q": "What does the welfare checklist contain? (4)",
+            "options": [
+              "Judicial convenience",
+              "A decree absolute",
+              "Factors relevant to child welfare",
+              "A pension sharing order"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 25,
+            "q": "What does the welfare checklist contain? (5)",
+            "options": [
+              "A freezing injunction",
+              "The overriding objective",
+              "The claimant's preference",
+              "Factors relevant to child welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 26,
+            "q": "What does the welfare checklist contain? (6)",
+            "options": [
+              "The overriding objective",
+              "A freezing injunction",
+              "Factors relevant to child welfare",
+              "Automatic equal division"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 27,
+            "q": "What does the welfare checklist contain? (7)",
+            "options": [
+              "The overriding objective",
+              "A freezing injunction",
+              "Factors relevant to child welfare",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 28,
+            "q": "What does the welfare checklist contain? (8)",
+            "options": [
+              "A freezing injunction",
+              "Automatic equal division",
+              "The overriding objective",
+              "Factors relevant to child welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 29,
+            "q": "What does the welfare checklist contain? (9)",
+            "options": [
+              "Factors relevant to child welfare",
+              "A decree absolute",
+              "The overriding objective",
+              "A freezing injunction"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 30,
+            "q": "What does the welfare checklist contain? (10)",
+            "options": [
+              "Judicial convenience",
+              "Factors relevant to child welfare",
+              "The overriding objective",
+              "The claimant's preference"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Factors relevant to child welfare."
+          },
+          {
+            "id": 31,
+            "q": "What order regulates where a child lives? (1)",
+            "options": [
+              "Child arrangements order",
+              "Specific disclosure",
+              "A freezing injunction",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 32,
+            "q": "What order regulates where a child lives? (2)",
+            "options": [
+              "A decree absolute",
+              "The claimant's preference",
+              "Criminal sentencing",
+              "Child arrangements order"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 33,
+            "q": "What order regulates where a child lives? (3)",
+            "options": [
+              "Child arrangements order",
+              "The overriding objective",
+              "The claimant's preference",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 34,
+            "q": "What order regulates where a child lives? (4)",
+            "options": [
+              "Child arrangements order",
+              "Automatic equal division",
+              "A bankruptcy petition",
+              "Judicial convenience"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 35,
+            "q": "What order regulates where a child lives? (5)",
+            "options": [
+              "Child arrangements order",
+              "The overriding objective",
+              "Automatic equal division",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 36,
+            "q": "What order regulates where a child lives? (6)",
+            "options": [
+              "A pension sharing order",
+              "A decree absolute",
+              "A freezing injunction",
+              "Child arrangements order"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 37,
+            "q": "What order regulates where a child lives? (7)",
+            "options": [
+              "Child arrangements order",
+              "The overriding objective",
+              "Judicial convenience",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 38,
+            "q": "What order regulates where a child lives? (8)",
+            "options": [
+              "Child arrangements order",
+              "Judicial convenience",
+              "Specific disclosure",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 39,
+            "q": "What order regulates where a child lives? (9)",
+            "options": [
+              "Specific disclosure",
+              "A bankruptcy petition",
+              "Child arrangements order",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 40,
+            "q": "What order regulates where a child lives? (10)",
+            "options": [
+              "Criminal sentencing",
+              "Judicial convenience",
+              "Automatic equal division",
+              "Child arrangements order"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Child arrangements order."
+          },
+          {
+            "id": 41,
+            "q": "What is parental responsibility? (1)",
+            "options": [
+              "A bankruptcy petition",
+              "A decree absolute",
+              "Rights and duties concerning a child",
+              "A freezing injunction"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 42,
+            "q": "What is parental responsibility? (2)",
+            "options": [
+              "Rights and duties concerning a child",
+              "A freezing injunction",
+              "Criminal sentencing",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 43,
+            "q": "What is parental responsibility? (3)",
+            "options": [
+              "A bankruptcy petition",
+              "Rights and duties concerning a child",
+              "A freezing injunction",
+              "The overriding objective"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 44,
+            "q": "What is parental responsibility? (4)",
+            "options": [
+              "The claimant's preference",
+              "Automatic equal division",
+              "Specific disclosure",
+              "Rights and duties concerning a child"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 45,
+            "q": "What is parental responsibility? (5)",
+            "options": [
+              "Rights and duties concerning a child",
+              "A freezing injunction",
+              "The overriding objective",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 46,
+            "q": "What is parental responsibility? (6)",
+            "options": [
+              "Judicial convenience",
+              "The claimant's preference",
+              "Automatic equal division",
+              "Rights and duties concerning a child"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 47,
+            "q": "What is parental responsibility? (7)",
+            "options": [
+              "A decree absolute",
+              "Rights and duties concerning a child",
+              "Automatic equal division",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 48,
+            "q": "What is parental responsibility? (8)",
+            "options": [
+              "Rights and duties concerning a child",
+              "A bankruptcy petition",
+              "Specific disclosure",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 49,
+            "q": "What is parental responsibility? (9)",
+            "options": [
+              "The overriding objective",
+              "Rights and duties concerning a child",
+              "Automatic equal division",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          },
+          {
+            "id": 50,
+            "q": "What is parental responsibility? (10)",
+            "options": [
+              "Criminal sentencing",
+              "Rights and duties concerning a child",
+              "The claimant's preference",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Rights and duties concerning a child."
+          }
+        ]
+      },
+      {
+        "id": "pd12j",
+        "title": "PD12J",
+        "questions": [
+          {
+            "id": 51,
+            "q": "PD12J concerns what? (1)",
+            "options": [
+              "Automatic equal division",
+              "Criminal sentencing",
+              "A pension sharing order",
+              "Domestic abuse allegations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 52,
+            "q": "PD12J concerns what? (2)",
+            "options": [
+              "Specific disclosure",
+              "Automatic equal division",
+              "Judicial convenience",
+              "Domestic abuse allegations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 53,
+            "q": "PD12J concerns what? (3)",
+            "options": [
+              "A freezing injunction",
+              "A decree absolute",
+              "Domestic abuse allegations",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 54,
+            "q": "PD12J concerns what? (4)",
+            "options": [
+              "A pension sharing order",
+              "A decree absolute",
+              "Domestic abuse allegations",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 55,
+            "q": "PD12J concerns what? (5)",
+            "options": [
+              "Domestic abuse allegations",
+              "Judicial convenience",
+              "A pension sharing order",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 56,
+            "q": "PD12J concerns what? (6)",
+            "options": [
+              "A bankruptcy petition",
+              "Domestic abuse allegations",
+              "A freezing injunction",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 57,
+            "q": "PD12J concerns what? (7)",
+            "options": [
+              "Domestic abuse allegations",
+              "A pension sharing order",
+              "A bankruptcy petition",
+              "Specific disclosure"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 58,
+            "q": "PD12J concerns what? (8)",
+            "options": [
+              "Domestic abuse allegations",
+              "The overriding objective",
+              "Automatic equal division",
+              "A freezing injunction"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 59,
+            "q": "PD12J concerns what? (9)",
+            "options": [
+              "A decree absolute",
+              "Domestic abuse allegations",
+              "A pension sharing order",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 60,
+            "q": "PD12J concerns what? (10)",
+            "options": [
+              "The claimant's preference",
+              "Criminal sentencing",
+              "Domestic abuse allegations",
+              "A freezing injunction"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Domestic abuse allegations."
+          },
+          {
+            "id": 61,
+            "q": "What hearing may determine disputed abuse allegations? (1)",
+            "options": [
+              "Judicial convenience",
+              "A pension sharing order",
+              "Fact-finding hearing",
+              "A freezing injunction"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 62,
+            "q": "What hearing may determine disputed abuse allegations? (2)",
+            "options": [
+              "Criminal sentencing",
+              "A bankruptcy petition",
+              "Judicial convenience",
+              "Fact-finding hearing"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 63,
+            "q": "What hearing may determine disputed abuse allegations? (3)",
+            "options": [
+              "A freezing injunction",
+              "A bankruptcy petition",
+              "Fact-finding hearing",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 64,
+            "q": "What hearing may determine disputed abuse allegations? (4)",
+            "options": [
+              "Specific disclosure",
+              "Fact-finding hearing",
+              "Automatic equal division",
+              "The overriding objective"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 65,
+            "q": "What hearing may determine disputed abuse allegations? (5)",
+            "options": [
+              "A freezing injunction",
+              "Automatic equal division",
+              "Fact-finding hearing",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 66,
+            "q": "What hearing may determine disputed abuse allegations? (6)",
+            "options": [
+              "A decree absolute",
+              "Fact-finding hearing",
+              "Judicial convenience",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 67,
+            "q": "What hearing may determine disputed abuse allegations? (7)",
+            "options": [
+              "A bankruptcy petition",
+              "The overriding objective",
+              "A pension sharing order",
+              "Fact-finding hearing"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 68,
+            "q": "What hearing may determine disputed abuse allegations? (8)",
+            "options": [
+              "Fact-finding hearing",
+              "Criminal sentencing",
+              "The claimant's preference",
+              "Judicial convenience"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 69,
+            "q": "What hearing may determine disputed abuse allegations? (9)",
+            "options": [
+              "Fact-finding hearing",
+              "A freezing injunction",
+              "Criminal sentencing",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 70,
+            "q": "What hearing may determine disputed abuse allegations? (10)",
+            "options": [
+              "Criminal sentencing",
+              "Fact-finding hearing",
+              "Specific disclosure",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Fact-finding hearing."
+          },
+          {
+            "id": 71,
+            "q": "What is the central aim of PD12J? (1)",
+            "options": [
+              "Protecting child and parent safety",
+              "Specific disclosure",
+              "Judicial convenience",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 72,
+            "q": "What is the central aim of PD12J? (2)",
+            "options": [
+              "A pension sharing order",
+              "A freezing injunction",
+              "Judicial convenience",
+              "Protecting child and parent safety"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 73,
+            "q": "What is the central aim of PD12J? (3)",
+            "options": [
+              "The overriding objective",
+              "A bankruptcy petition",
+              "Protecting child and parent safety",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 74,
+            "q": "What is the central aim of PD12J? (4)",
+            "options": [
+              "Protecting child and parent safety",
+              "A pension sharing order",
+              "A freezing injunction",
+              "Specific disclosure"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 75,
+            "q": "What is the central aim of PD12J? (5)",
+            "options": [
+              "The claimant's preference",
+              "Protecting child and parent safety",
+              "A bankruptcy petition",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 76,
+            "q": "What is the central aim of PD12J? (6)",
+            "options": [
+              "A pension sharing order",
+              "Protecting child and parent safety",
+              "Automatic equal division",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 77,
+            "q": "What is the central aim of PD12J? (7)",
+            "options": [
+              "A freezing injunction",
+              "Protecting child and parent safety",
+              "Criminal sentencing",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 78,
+            "q": "What is the central aim of PD12J? (8)",
+            "options": [
+              "Protecting child and parent safety",
+              "A pension sharing order",
+              "A freezing injunction",
+              "The overriding objective"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 79,
+            "q": "What is the central aim of PD12J? (9)",
+            "options": [
+              "Protecting child and parent safety",
+              "Criminal sentencing",
+              "Judicial convenience",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 80,
+            "q": "What is the central aim of PD12J? (10)",
+            "options": [
+              "A decree absolute",
+              "A bankruptcy petition",
+              "Automatic equal division",
+              "Protecting child and parent safety"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Protecting child and parent safety."
+          },
+          {
+            "id": 81,
+            "q": "Can abuse findings affect contact? (1)",
+            "options": [
+              "Judicial convenience",
+              "Yes",
+              "A freezing injunction",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 82,
+            "q": "Can abuse findings affect contact? (2)",
+            "options": [
+              "Yes",
+              "A freezing injunction",
+              "The claimant's preference",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 83,
+            "q": "Can abuse findings affect contact? (3)",
+            "options": [
+              "Specific disclosure",
+              "The claimant's preference",
+              "Yes",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 84,
+            "q": "Can abuse findings affect contact? (4)",
+            "options": [
+              "Specific disclosure",
+              "A bankruptcy petition",
+              "A freezing injunction",
+              "Yes"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 85,
+            "q": "Can abuse findings affect contact? (5)",
+            "options": [
+              "The overriding objective",
+              "Yes",
+              "Specific disclosure",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 86,
+            "q": "Can abuse findings affect contact? (6)",
+            "options": [
+              "Yes",
+              "A decree absolute",
+              "Specific disclosure",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 87,
+            "q": "Can abuse findings affect contact? (7)",
+            "options": [
+              "The claimant's preference",
+              "Yes",
+              "Automatic equal division",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 88,
+            "q": "Can abuse findings affect contact? (8)",
+            "options": [
+              "A freezing injunction",
+              "Criminal sentencing",
+              "Yes",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 89,
+            "q": "Can abuse findings affect contact? (9)",
+            "options": [
+              "Specific disclosure",
+              "A pension sharing order",
+              "Yes",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 90,
+            "q": "Can abuse findings affect contact? (10)",
+            "options": [
+              "Yes",
+              "Criminal sentencing",
+              "Judicial convenience",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes."
+          },
+          {
+            "id": 91,
+            "q": "What standard of proof applies in fact-finding? (1)",
+            "options": [
+              "A decree absolute",
+              "Balance of probabilities",
+              "A bankruptcy petition",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 92,
+            "q": "What standard of proof applies in fact-finding? (2)",
+            "options": [
+              "Balance of probabilities",
+              "The overriding objective",
+              "A freezing injunction",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 93,
+            "q": "What standard of proof applies in fact-finding? (3)",
+            "options": [
+              "Specific disclosure",
+              "Balance of probabilities",
+              "Automatic equal division",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 94,
+            "q": "What standard of proof applies in fact-finding? (4)",
+            "options": [
+              "A bankruptcy petition",
+              "Judicial convenience",
+              "The overriding objective",
+              "Balance of probabilities"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 95,
+            "q": "What standard of proof applies in fact-finding? (5)",
+            "options": [
+              "Criminal sentencing",
+              "Specific disclosure",
+              "A freezing injunction",
+              "Balance of probabilities"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 96,
+            "q": "What standard of proof applies in fact-finding? (6)",
+            "options": [
+              "Judicial convenience",
+              "Balance of probabilities",
+              "The overriding objective",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 97,
+            "q": "What standard of proof applies in fact-finding? (7)",
+            "options": [
+              "Criminal sentencing",
+              "A freezing injunction",
+              "Balance of probabilities",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 98,
+            "q": "What standard of proof applies in fact-finding? (8)",
+            "options": [
+              "The claimant's preference",
+              "Judicial convenience",
+              "Automatic equal division",
+              "Balance of probabilities"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 99,
+            "q": "What standard of proof applies in fact-finding? (9)",
+            "options": [
+              "A decree absolute",
+              "Balance of probabilities",
+              "The overriding objective",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Balance of probabilities."
+          },
+          {
+            "id": 100,
+            "q": "What standard of proof applies in fact-finding? (10)",
+            "options": [
+              "Criminal sentencing",
+              "A bankruptcy petition",
+              "Automatic equal division",
+              "Balance of probabilities"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Balance of probabilities."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "financial_remedies",
+    "title": "Financial Remedies",
+    "topics": [
+      {
+        "id": "sharing_principle",
+        "title": "Sharing Principle",
+        "questions": [
+          {
+            "id": 101,
+            "q": "Which case introduced the equality yardstick? (1)",
+            "options": [
+              "A pension sharing order",
+              "White v White",
+              "Criminal sentencing",
+              "Judicial convenience"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 102,
+            "q": "Which case introduced the equality yardstick? (2)",
+            "options": [
+              "Automatic equal division",
+              "A pension sharing order",
+              "White v White",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 103,
+            "q": "Which case introduced the equality yardstick? (3)",
+            "options": [
+              "Automatic equal division",
+              "White v White",
+              "Judicial convenience",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 104,
+            "q": "Which case introduced the equality yardstick? (4)",
+            "options": [
+              "The overriding objective",
+              "A freezing injunction",
+              "White v White",
+              "Automatic equal division"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 105,
+            "q": "Which case introduced the equality yardstick? (5)",
+            "options": [
+              "White v White",
+              "A bankruptcy petition",
+              "Judicial convenience",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 106,
+            "q": "Which case introduced the equality yardstick? (6)",
+            "options": [
+              "The overriding objective",
+              "White v White",
+              "A bankruptcy petition",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 107,
+            "q": "Which case introduced the equality yardstick? (7)",
+            "options": [
+              "The claimant's preference",
+              "Criminal sentencing",
+              "A decree absolute",
+              "White v White"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 108,
+            "q": "Which case introduced the equality yardstick? (8)",
+            "options": [
+              "The overriding objective",
+              "The claimant's preference",
+              "Criminal sentencing",
+              "White v White"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 109,
+            "q": "Which case introduced the equality yardstick? (9)",
+            "options": [
+              "White v White",
+              "A pension sharing order",
+              "A decree absolute",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 110,
+            "q": "Which case introduced the equality yardstick? (10)",
+            "options": [
+              "Judicial convenience",
+              "Criminal sentencing",
+              "White v White",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: White v White."
+          },
+          {
+            "id": 111,
+            "q": "Which case identified needs, sharing and compensation? (1)",
+            "options": [
+              "The claimant's preference",
+              "Automatic equal division",
+              "Miller/McFarlane",
+              "Judicial convenience"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 112,
+            "q": "Which case identified needs, sharing and compensation? (2)",
+            "options": [
+              "Judicial convenience",
+              "Automatic equal division",
+              "The claimant's preference",
+              "Miller/McFarlane"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 113,
+            "q": "Which case identified needs, sharing and compensation? (3)",
+            "options": [
+              "A pension sharing order",
+              "Miller/McFarlane",
+              "Judicial convenience",
+              "The overriding objective"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 114,
+            "q": "Which case identified needs, sharing and compensation? (4)",
+            "options": [
+              "Specific disclosure",
+              "Miller/McFarlane",
+              "The claimant's preference",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 115,
+            "q": "Which case identified needs, sharing and compensation? (5)",
+            "options": [
+              "Automatic equal division",
+              "A bankruptcy petition",
+              "Miller/McFarlane",
+              "A freezing injunction"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 116,
+            "q": "Which case identified needs, sharing and compensation? (6)",
+            "options": [
+              "A pension sharing order",
+              "Miller/McFarlane",
+              "A decree absolute",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 117,
+            "q": "Which case identified needs, sharing and compensation? (7)",
+            "options": [
+              "A pension sharing order",
+              "Criminal sentencing",
+              "Automatic equal division",
+              "Miller/McFarlane"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 118,
+            "q": "Which case identified needs, sharing and compensation? (8)",
+            "options": [
+              "Miller/McFarlane",
+              "Criminal sentencing",
+              "A pension sharing order",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 119,
+            "q": "Which case identified needs, sharing and compensation? (9)",
+            "options": [
+              "Specific disclosure",
+              "The overriding objective",
+              "A decree absolute",
+              "Miller/McFarlane"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 120,
+            "q": "Which case identified needs, sharing and compensation? (10)",
+            "options": [
+              "A pension sharing order",
+              "A decree absolute",
+              "Criminal sentencing",
+              "Miller/McFarlane"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Miller/McFarlane."
+          },
+          {
+            "id": 121,
+            "q": "What usually applies to matrimonial property? (1)",
+            "options": [
+              "Equal sharing",
+              "Criminal sentencing",
+              "A decree absolute",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 122,
+            "q": "What usually applies to matrimonial property? (2)",
+            "options": [
+              "Equal sharing",
+              "The overriding objective",
+              "A pension sharing order",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 123,
+            "q": "What usually applies to matrimonial property? (3)",
+            "options": [
+              "The overriding objective",
+              "Equal sharing",
+              "A bankruptcy petition",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 124,
+            "q": "What usually applies to matrimonial property? (4)",
+            "options": [
+              "Automatic equal division",
+              "A pension sharing order",
+              "Equal sharing",
+              "Judicial convenience"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 125,
+            "q": "What usually applies to matrimonial property? (5)",
+            "options": [
+              "A freezing injunction",
+              "The overriding objective",
+              "Equal sharing",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 126,
+            "q": "What usually applies to matrimonial property? (6)",
+            "options": [
+              "Equal sharing",
+              "The overriding objective",
+              "A freezing injunction",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 127,
+            "q": "What usually applies to matrimonial property? (7)",
+            "options": [
+              "A freezing injunction",
+              "The overriding objective",
+              "Equal sharing",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 128,
+            "q": "What usually applies to matrimonial property? (8)",
+            "options": [
+              "The overriding objective",
+              "A bankruptcy petition",
+              "Judicial convenience",
+              "Equal sharing"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 129,
+            "q": "What usually applies to matrimonial property? (9)",
+            "options": [
+              "A decree absolute",
+              "The overriding objective",
+              "Automatic equal division",
+              "Equal sharing"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 130,
+            "q": "What usually applies to matrimonial property? (10)",
+            "options": [
+              "A freezing injunction",
+              "Judicial convenience",
+              "A decree absolute",
+              "Equal sharing"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Equal sharing."
+          },
+          {
+            "id": 131,
+            "q": "What is matrimonialisation? (1)",
+            "options": [
+              "The overriding objective",
+              "A decree absolute",
+              "Automatic equal division",
+              "Non-matrimonial property becoming matrimonial"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 132,
+            "q": "What is matrimonialisation? (2)",
+            "options": [
+              "Automatic equal division",
+              "Non-matrimonial property becoming matrimonial",
+              "The overriding objective",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 133,
+            "q": "What is matrimonialisation? (3)",
+            "options": [
+              "Criminal sentencing",
+              "The overriding objective",
+              "Non-matrimonial property becoming matrimonial",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 134,
+            "q": "What is matrimonialisation? (4)",
+            "options": [
+              "Non-matrimonial property becoming matrimonial",
+              "The overriding objective",
+              "A bankruptcy petition",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 135,
+            "q": "What is matrimonialisation? (5)",
+            "options": [
+              "Non-matrimonial property becoming matrimonial",
+              "The claimant's preference",
+              "The overriding objective",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 136,
+            "q": "What is matrimonialisation? (6)",
+            "options": [
+              "The overriding objective",
+              "Non-matrimonial property becoming matrimonial",
+              "A pension sharing order",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 137,
+            "q": "What is matrimonialisation? (7)",
+            "options": [
+              "Criminal sentencing",
+              "The overriding objective",
+              "A pension sharing order",
+              "Non-matrimonial property becoming matrimonial"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 138,
+            "q": "What is matrimonialisation? (8)",
+            "options": [
+              "The claimant's preference",
+              "Non-matrimonial property becoming matrimonial",
+              "A freezing injunction",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 139,
+            "q": "What is matrimonialisation? (9)",
+            "options": [
+              "Criminal sentencing",
+              "A decree absolute",
+              "Specific disclosure",
+              "Non-matrimonial property becoming matrimonial"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 140,
+            "q": "What is matrimonialisation? (10)",
+            "options": [
+              "The overriding objective",
+              "The claimant's preference",
+              "Judicial convenience",
+              "Non-matrimonial property becoming matrimonial"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Non-matrimonial property becoming matrimonial."
+          },
+          {
+            "id": 141,
+            "q": "What statute governs financial remedies? (1)",
+            "options": [
+              "A bankruptcy petition",
+              "Specific disclosure",
+              "Matrimonial Causes Act 1973",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 142,
+            "q": "What statute governs financial remedies? (2)",
+            "options": [
+              "Criminal sentencing",
+              "The overriding objective",
+              "Matrimonial Causes Act 1973",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 143,
+            "q": "What statute governs financial remedies? (3)",
+            "options": [
+              "Criminal sentencing",
+              "A decree absolute",
+              "Automatic equal division",
+              "Matrimonial Causes Act 1973"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 144,
+            "q": "What statute governs financial remedies? (4)",
+            "options": [
+              "A bankruptcy petition",
+              "Matrimonial Causes Act 1973",
+              "Automatic equal division",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 145,
+            "q": "What statute governs financial remedies? (5)",
+            "options": [
+              "A bankruptcy petition",
+              "Automatic equal division",
+              "Matrimonial Causes Act 1973",
+              "Specific disclosure"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 146,
+            "q": "What statute governs financial remedies? (6)",
+            "options": [
+              "A pension sharing order",
+              "Specific disclosure",
+              "Judicial convenience",
+              "Matrimonial Causes Act 1973"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 147,
+            "q": "What statute governs financial remedies? (7)",
+            "options": [
+              "The overriding objective",
+              "Automatic equal division",
+              "Matrimonial Causes Act 1973",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 148,
+            "q": "What statute governs financial remedies? (8)",
+            "options": [
+              "Matrimonial Causes Act 1973",
+              "Specific disclosure",
+              "Criminal sentencing",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 149,
+            "q": "What statute governs financial remedies? (9)",
+            "options": [
+              "A decree absolute",
+              "Automatic equal division",
+              "A freezing injunction",
+              "Matrimonial Causes Act 1973"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          },
+          {
+            "id": 150,
+            "q": "What statute governs financial remedies? (10)",
+            "options": [
+              "Judicial convenience",
+              "The claimant's preference",
+              "Automatic equal division",
+              "Matrimonial Causes Act 1973"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Matrimonial Causes Act 1973."
+          }
+        ]
+      },
+      {
+        "id": "section_25",
+        "title": "Section 25",
+        "questions": [
+          {
+            "id": 151,
+            "q": "What is the first consideration under section 25? (1)",
+            "options": [
+              "The welfare of minor children",
+              "The overriding objective",
+              "A bankruptcy petition",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 152,
+            "q": "What is the first consideration under section 25? (2)",
+            "options": [
+              "A bankruptcy petition",
+              "The claimant's preference",
+              "The overriding objective",
+              "The welfare of minor children"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 153,
+            "q": "What is the first consideration under section 25? (3)",
+            "options": [
+              "Automatic equal division",
+              "The welfare of minor children",
+              "A pension sharing order",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 154,
+            "q": "What is the first consideration under section 25? (4)",
+            "options": [
+              "The welfare of minor children",
+              "The claimant's preference",
+              "A freezing injunction",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 155,
+            "q": "What is the first consideration under section 25? (5)",
+            "options": [
+              "A pension sharing order",
+              "The welfare of minor children",
+              "A bankruptcy petition",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 156,
+            "q": "What is the first consideration under section 25? (6)",
+            "options": [
+              "The welfare of minor children",
+              "Automatic equal division",
+              "Specific disclosure",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 157,
+            "q": "What is the first consideration under section 25? (7)",
+            "options": [
+              "Judicial convenience",
+              "The overriding objective",
+              "The welfare of minor children",
+              "Specific disclosure"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 158,
+            "q": "What is the first consideration under section 25? (8)",
+            "options": [
+              "The claimant's preference",
+              "A freezing injunction",
+              "The welfare of minor children",
+              "Specific disclosure"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 159,
+            "q": "What is the first consideration under section 25? (9)",
+            "options": [
+              "The welfare of minor children",
+              "A decree absolute",
+              "A pension sharing order",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 160,
+            "q": "What is the first consideration under section 25? (10)",
+            "options": [
+              "The claimant's preference",
+              "Criminal sentencing",
+              "The welfare of minor children",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: The welfare of minor children."
+          },
+          {
+            "id": 161,
+            "q": "What does section 25(2)(a) concern? (1)",
+            "options": [
+              "Criminal sentencing",
+              "The claimant's preference",
+              "Income and earning capacity",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 162,
+            "q": "What does section 25(2)(a) concern? (2)",
+            "options": [
+              "A freezing injunction",
+              "Income and earning capacity",
+              "A decree absolute",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 163,
+            "q": "What does section 25(2)(a) concern? (3)",
+            "options": [
+              "A freezing injunction",
+              "The overriding objective",
+              "Automatic equal division",
+              "Income and earning capacity"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 164,
+            "q": "What does section 25(2)(a) concern? (4)",
+            "options": [
+              "Automatic equal division",
+              "The claimant's preference",
+              "Income and earning capacity",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 165,
+            "q": "What does section 25(2)(a) concern? (5)",
+            "options": [
+              "The claimant's preference",
+              "A bankruptcy petition",
+              "The overriding objective",
+              "Income and earning capacity"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 166,
+            "q": "What does section 25(2)(a) concern? (6)",
+            "options": [
+              "A decree absolute",
+              "Income and earning capacity",
+              "The overriding objective",
+              "A bankruptcy petition"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 167,
+            "q": "What does section 25(2)(a) concern? (7)",
+            "options": [
+              "A freezing injunction",
+              "Income and earning capacity",
+              "The overriding objective",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 168,
+            "q": "What does section 25(2)(a) concern? (8)",
+            "options": [
+              "Income and earning capacity",
+              "A decree absolute",
+              "Criminal sentencing",
+              "A pension sharing order"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 169,
+            "q": "What does section 25(2)(a) concern? (9)",
+            "options": [
+              "Judicial convenience",
+              "Criminal sentencing",
+              "Automatic equal division",
+              "Income and earning capacity"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 170,
+            "q": "What does section 25(2)(a) concern? (10)",
+            "options": [
+              "The overriding objective",
+              "A freezing injunction",
+              "Judicial convenience",
+              "Income and earning capacity"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Income and earning capacity."
+          },
+          {
+            "id": 171,
+            "q": "What does section 25(2)(f) concern? (1)",
+            "options": [
+              "The claimant's preference",
+              "Specific disclosure",
+              "Contributions to family welfare",
+              "Automatic equal division"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 172,
+            "q": "What does section 25(2)(f) concern? (2)",
+            "options": [
+              "Automatic equal division",
+              "A decree absolute",
+              "The overriding objective",
+              "Contributions to family welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 173,
+            "q": "What does section 25(2)(f) concern? (3)",
+            "options": [
+              "Criminal sentencing",
+              "Contributions to family welfare",
+              "A bankruptcy petition",
+              "Automatic equal division"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 174,
+            "q": "What does section 25(2)(f) concern? (4)",
+            "options": [
+              "Judicial convenience",
+              "A freezing injunction",
+              "Contributions to family welfare",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 175,
+            "q": "What does section 25(2)(f) concern? (5)",
+            "options": [
+              "The overriding objective",
+              "Criminal sentencing",
+              "A pension sharing order",
+              "Contributions to family welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 176,
+            "q": "What does section 25(2)(f) concern? (6)",
+            "options": [
+              "A freezing injunction",
+              "Judicial convenience",
+              "Contributions to family welfare",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 177,
+            "q": "What does section 25(2)(f) concern? (7)",
+            "options": [
+              "Contributions to family welfare",
+              "Criminal sentencing",
+              "The overriding objective",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 178,
+            "q": "What does section 25(2)(f) concern? (8)",
+            "options": [
+              "Contributions to family welfare",
+              "Judicial convenience",
+              "Criminal sentencing",
+              "A freezing injunction"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 179,
+            "q": "What does section 25(2)(f) concern? (9)",
+            "options": [
+              "The overriding objective",
+              "Contributions to family welfare",
+              "The claimant's preference",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 180,
+            "q": "What does section 25(2)(f) concern? (10)",
+            "options": [
+              "A decree absolute",
+              "Automatic equal division",
+              "Specific disclosure",
+              "Contributions to family welfare"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Contributions to family welfare."
+          },
+          {
+            "id": 181,
+            "q": "What does section 25(2)(b) concern? (1)",
+            "options": [
+              "The overriding objective",
+              "Specific disclosure",
+              "Needs and obligations",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 182,
+            "q": "What does section 25(2)(b) concern? (2)",
+            "options": [
+              "A freezing injunction",
+              "The claimant's preference",
+              "A bankruptcy petition",
+              "Needs and obligations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 183,
+            "q": "What does section 25(2)(b) concern? (3)",
+            "options": [
+              "A decree absolute",
+              "Needs and obligations",
+              "Criminal sentencing",
+              "Automatic equal division"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 184,
+            "q": "What does section 25(2)(b) concern? (4)",
+            "options": [
+              "Automatic equal division",
+              "Judicial convenience",
+              "Needs and obligations",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 185,
+            "q": "What does section 25(2)(b) concern? (5)",
+            "options": [
+              "A freezing injunction",
+              "The overriding objective",
+              "A pension sharing order",
+              "Needs and obligations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 186,
+            "q": "What does section 25(2)(b) concern? (6)",
+            "options": [
+              "Judicial convenience",
+              "Needs and obligations",
+              "A pension sharing order",
+              "The claimant's preference"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 187,
+            "q": "What does section 25(2)(b) concern? (7)",
+            "options": [
+              "The claimant's preference",
+              "Needs and obligations",
+              "A decree absolute",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 188,
+            "q": "What does section 25(2)(b) concern? (8)",
+            "options": [
+              "A bankruptcy petition",
+              "The overriding objective",
+              "A pension sharing order",
+              "Needs and obligations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 189,
+            "q": "What does section 25(2)(b) concern? (9)",
+            "options": [
+              "The claimant's preference",
+              "Needs and obligations",
+              "A pension sharing order",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 190,
+            "q": "What does section 25(2)(b) concern? (10)",
+            "options": [
+              "A decree absolute",
+              "A freezing injunction",
+              "A bankruptcy petition",
+              "Needs and obligations"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Needs and obligations."
+          },
+          {
+            "id": 191,
+            "q": "Can conduct be relevant? (1)",
+            "options": [
+              "Yes, in exceptional cases",
+              "Specific disclosure",
+              "Automatic equal division",
+              "A bankruptcy petition"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 192,
+            "q": "Can conduct be relevant? (2)",
+            "options": [
+              "Yes, in exceptional cases",
+              "Criminal sentencing",
+              "A freezing injunction",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 193,
+            "q": "Can conduct be relevant? (3)",
+            "options": [
+              "Criminal sentencing",
+              "A bankruptcy petition",
+              "Yes, in exceptional cases",
+              "A pension sharing order"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 194,
+            "q": "Can conduct be relevant? (4)",
+            "options": [
+              "The claimant's preference",
+              "Automatic equal division",
+              "Specific disclosure",
+              "Yes, in exceptional cases"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 195,
+            "q": "Can conduct be relevant? (5)",
+            "options": [
+              "Criminal sentencing",
+              "Automatic equal division",
+              "Yes, in exceptional cases",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 196,
+            "q": "Can conduct be relevant? (6)",
+            "options": [
+              "A freezing injunction",
+              "Yes, in exceptional cases",
+              "Specific disclosure",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 197,
+            "q": "Can conduct be relevant? (7)",
+            "options": [
+              "Specific disclosure",
+              "The overriding objective",
+              "Judicial convenience",
+              "Yes, in exceptional cases"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 198,
+            "q": "Can conduct be relevant? (8)",
+            "options": [
+              "Yes, in exceptional cases",
+              "A pension sharing order",
+              "Automatic equal division",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 199,
+            "q": "Can conduct be relevant? (9)",
+            "options": [
+              "A bankruptcy petition",
+              "Yes, in exceptional cases",
+              "A freezing injunction",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          },
+          {
+            "id": 200,
+            "q": "Can conduct be relevant? (10)",
+            "options": [
+              "Yes, in exceptional cases",
+              "Criminal sentencing",
+              "Automatic equal division",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Yes, in exceptional cases."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tlata",
+    "title": "TLATA",
+    "topics": [
+      {
+        "id": "beneficial_interests",
+        "title": "Beneficial Interests",
+        "questions": [
+          {
+            "id": 201,
+            "q": "What is required for a common intention constructive trust? (1)",
+            "options": [
+              "A pension sharing order",
+              "Specific disclosure",
+              "Common intention and detrimental reliance",
+              "A freezing injunction"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 202,
+            "q": "What is required for a common intention constructive trust? (2)",
+            "options": [
+              "Common intention and detrimental reliance",
+              "Specific disclosure",
+              "A freezing injunction",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 203,
+            "q": "What is required for a common intention constructive trust? (3)",
+            "options": [
+              "A bankruptcy petition",
+              "The overriding objective",
+              "Common intention and detrimental reliance",
+              "A pension sharing order"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 204,
+            "q": "What is required for a common intention constructive trust? (4)",
+            "options": [
+              "Common intention and detrimental reliance",
+              "Judicial convenience",
+              "Specific disclosure",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 205,
+            "q": "What is required for a common intention constructive trust? (5)",
+            "options": [
+              "Common intention and detrimental reliance",
+              "A decree absolute",
+              "Specific disclosure",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 206,
+            "q": "What is required for a common intention constructive trust? (6)",
+            "options": [
+              "Specific disclosure",
+              "Criminal sentencing",
+              "A bankruptcy petition",
+              "Common intention and detrimental reliance"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 207,
+            "q": "What is required for a common intention constructive trust? (7)",
+            "options": [
+              "Common intention and detrimental reliance",
+              "A bankruptcy petition",
+              "Specific disclosure",
+              "Judicial convenience"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 208,
+            "q": "What is required for a common intention constructive trust? (8)",
+            "options": [
+              "Criminal sentencing",
+              "Automatic equal division",
+              "A decree absolute",
+              "Common intention and detrimental reliance"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 209,
+            "q": "What is required for a common intention constructive trust? (9)",
+            "options": [
+              "The claimant's preference",
+              "Automatic equal division",
+              "Common intention and detrimental reliance",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 210,
+            "q": "What is required for a common intention constructive trust? (10)",
+            "options": [
+              "Specific disclosure",
+              "A freezing injunction",
+              "Common intention and detrimental reliance",
+              "A bankruptcy petition"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Common intention and detrimental reliance."
+          },
+          {
+            "id": 211,
+            "q": "Which case concerns co-owned domestic property? (1)",
+            "options": [
+              "Stack v Dowden",
+              "Criminal sentencing",
+              "A pension sharing order",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 212,
+            "q": "Which case concerns co-owned domestic property? (2)",
+            "options": [
+              "A decree absolute",
+              "A bankruptcy petition",
+              "Stack v Dowden",
+              "A pension sharing order"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 213,
+            "q": "Which case concerns co-owned domestic property? (3)",
+            "options": [
+              "Automatic equal division",
+              "Stack v Dowden",
+              "Criminal sentencing",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 214,
+            "q": "Which case concerns co-owned domestic property? (4)",
+            "options": [
+              "Judicial convenience",
+              "Stack v Dowden",
+              "A freezing injunction",
+              "Automatic equal division"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 215,
+            "q": "Which case concerns co-owned domestic property? (5)",
+            "options": [
+              "Specific disclosure",
+              "The claimant's preference",
+              "A decree absolute",
+              "Stack v Dowden"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 216,
+            "q": "Which case concerns co-owned domestic property? (6)",
+            "options": [
+              "Stack v Dowden",
+              "Judicial convenience",
+              "Specific disclosure",
+              "A freezing injunction"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 217,
+            "q": "Which case concerns co-owned domestic property? (7)",
+            "options": [
+              "Judicial convenience",
+              "The claimant's preference",
+              "Stack v Dowden",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 218,
+            "q": "Which case concerns co-owned domestic property? (8)",
+            "options": [
+              "A decree absolute",
+              "Stack v Dowden",
+              "A freezing injunction",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 219,
+            "q": "Which case concerns co-owned domestic property? (9)",
+            "options": [
+              "A pension sharing order",
+              "The claimant's preference",
+              "Judicial convenience",
+              "Stack v Dowden"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 220,
+            "q": "Which case concerns co-owned domestic property? (10)",
+            "options": [
+              "A bankruptcy petition",
+              "Stack v Dowden",
+              "A pension sharing order",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Stack v Dowden."
+          },
+          {
+            "id": 221,
+            "q": "Which statute governs TLATA claims? (1)",
+            "options": [
+              "A decree absolute",
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "A bankruptcy petition",
+              "A freezing injunction"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 222,
+            "q": "Which statute governs TLATA claims? (2)",
+            "options": [
+              "Criminal sentencing",
+              "A freezing injunction",
+              "A pension sharing order",
+              "Trusts of Land and Appointment of Trustees Act 1996"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 223,
+            "q": "Which statute governs TLATA claims? (3)",
+            "options": [
+              "The overriding objective",
+              "A bankruptcy petition",
+              "Automatic equal division",
+              "Trusts of Land and Appointment of Trustees Act 1996"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 224,
+            "q": "Which statute governs TLATA claims? (4)",
+            "options": [
+              "Criminal sentencing",
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "A decree absolute",
+              "Judicial convenience"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 225,
+            "q": "Which statute governs TLATA claims? (5)",
+            "options": [
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "The claimant's preference",
+              "A pension sharing order",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 226,
+            "q": "Which statute governs TLATA claims? (6)",
+            "options": [
+              "A freezing injunction",
+              "Specific disclosure",
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "Criminal sentencing"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 227,
+            "q": "Which statute governs TLATA claims? (7)",
+            "options": [
+              "Judicial convenience",
+              "Automatic equal division",
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 228,
+            "q": "Which statute governs TLATA claims? (8)",
+            "options": [
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "A bankruptcy petition",
+              "A freezing injunction",
+              "Judicial convenience"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 229,
+            "q": "Which statute governs TLATA claims? (9)",
+            "options": [
+              "A freezing injunction",
+              "Trusts of Land and Appointment of Trustees Act 1996",
+              "The claimant's preference",
+              "A pension sharing order"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 230,
+            "q": "Which statute governs TLATA claims? (10)",
+            "options": [
+              "A bankruptcy petition",
+              "Specific disclosure",
+              "Judicial convenience",
+              "Trusts of Land and Appointment of Trustees Act 1996"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Trusts of Land and Appointment of Trustees Act 1996."
+          },
+          {
+            "id": 231,
+            "q": "What is severance? (1)",
+            "options": [
+              "Specific disclosure",
+              "The overriding objective",
+              "Criminal sentencing",
+              "Converting a joint tenancy into tenancy in common"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 232,
+            "q": "What is severance? (2)",
+            "options": [
+              "Automatic equal division",
+              "Converting a joint tenancy into tenancy in common",
+              "Judicial convenience",
+              "A decree absolute"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 233,
+            "q": "What is severance? (3)",
+            "options": [
+              "Specific disclosure",
+              "Converting a joint tenancy into tenancy in common",
+              "The claimant's preference",
+              "Criminal sentencing"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 234,
+            "q": "What is severance? (4)",
+            "options": [
+              "Converting a joint tenancy into tenancy in common",
+              "A freezing injunction",
+              "The overriding objective",
+              "Criminal sentencing"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 235,
+            "q": "What is severance? (5)",
+            "options": [
+              "The overriding objective",
+              "Judicial convenience",
+              "Converting a joint tenancy into tenancy in common",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 236,
+            "q": "What is severance? (6)",
+            "options": [
+              "Automatic equal division",
+              "Converting a joint tenancy into tenancy in common",
+              "Criminal sentencing",
+              "Specific disclosure"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 237,
+            "q": "What is severance? (7)",
+            "options": [
+              "Converting a joint tenancy into tenancy in common",
+              "A decree absolute",
+              "Criminal sentencing",
+              "The claimant's preference"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 238,
+            "q": "What is severance? (8)",
+            "options": [
+              "A freezing injunction",
+              "Criminal sentencing",
+              "Converting a joint tenancy into tenancy in common",
+              "A decree absolute"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 239,
+            "q": "What is severance? (9)",
+            "options": [
+              "Converting a joint tenancy into tenancy in common",
+              "Judicial convenience",
+              "The claimant's preference",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 240,
+            "q": "What is severance? (10)",
+            "options": [
+              "Converting a joint tenancy into tenancy in common",
+              "Judicial convenience",
+              "A bankruptcy petition",
+              "Specific disclosure"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Converting a joint tenancy into tenancy in common."
+          },
+          {
+            "id": 241,
+            "q": "What may proprietary estoppel require? (1)",
+            "options": [
+              "A bankruptcy petition",
+              "A freezing injunction",
+              "Assurance, reliance and detriment",
+              "Specific disclosure"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 242,
+            "q": "What may proprietary estoppel require? (2)",
+            "options": [
+              "A bankruptcy petition",
+              "Assurance, reliance and detriment",
+              "The claimant's preference",
+              "Automatic equal division"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 243,
+            "q": "What may proprietary estoppel require? (3)",
+            "options": [
+              "Specific disclosure",
+              "Assurance, reliance and detriment",
+              "A freezing injunction",
+              "Automatic equal division"
+            ],
+            "answer": 1,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 244,
+            "q": "What may proprietary estoppel require? (4)",
+            "options": [
+              "Assurance, reliance and detriment",
+              "A freezing injunction",
+              "A pension sharing order",
+              "Automatic equal division"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 245,
+            "q": "What may proprietary estoppel require? (5)",
+            "options": [
+              "A freezing injunction",
+              "A decree absolute",
+              "Assurance, reliance and detriment",
+              "The claimant's preference"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 246,
+            "q": "What may proprietary estoppel require? (6)",
+            "options": [
+              "Automatic equal division",
+              "A decree absolute",
+              "A pension sharing order",
+              "Assurance, reliance and detriment"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 247,
+            "q": "What may proprietary estoppel require? (7)",
+            "options": [
+              "Criminal sentencing",
+              "A freezing injunction",
+              "Assurance, reliance and detriment",
+              "The overriding objective"
+            ],
+            "answer": 2,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 248,
+            "q": "What may proprietary estoppel require? (8)",
+            "options": [
+              "The claimant's preference",
+              "Specific disclosure",
+              "A pension sharing order",
+              "Assurance, reliance and detriment"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 249,
+            "q": "What may proprietary estoppel require? (9)",
+            "options": [
+              "Assurance, reliance and detriment",
+              "The claimant's preference",
+              "Criminal sentencing",
+              "A decree absolute"
+            ],
+            "answer": 0,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          },
+          {
+            "id": 250,
+            "q": "What may proprietary estoppel require? (10)",
+            "options": [
+              "The overriding objective",
+              "Automatic equal division",
+              "A freezing injunction",
+              "Assurance, reliance and detriment"
+            ],
+            "answer": 3,
+            "explanation": "The correct answer is: Assurance, reliance and detriment."
+          }
+        ]
+      }
+    ]
+  }
+]
