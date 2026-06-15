@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LawLingo Mobile Quiz</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --text:#0f172a; --muted:#64748b;
+  --primary:#2563eb; --primary2:#60a5fa; --border:#e2e8f0;
+  --good:#16a34a; --bad:#dc2626;
+}
+.dark{
+  --bg:#07111f; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8;
+  --primary:#60a5fa; --primary2:#93c5fd; --border:#1e293b;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0; width:100%; max-width:100%; overflow-x:hidden;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); scroll-behavior:smooth;
+}
+.app{width:100%;max-width:430px;margin:0 auto;overflow:hidden;background:var(--bg);min-height:100vh}
+.topbar{
+  position:fixed; top:calc(env(safe-area-inset-top) + 10px); left:50%;
+  transform:translateX(-50%); width:min(398px,calc(100vw - 24px)); z-index:50;
+  display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-radius:999px;
+  background:rgba(255,255,255,.86);border:1px solid rgba(226,232,240,.8);
+  backdrop-filter:blur(16px);box-shadow:0 12px 34px rgba(15,23,42,.14);
+}
+.dark .topbar{background:rgba(15,23,42,.86)}
+.brand{font-weight:950;font-size:.95rem;letter-spacing:-.04em;white-space:nowrap}
+.icon-btn{border:0;border-radius:999px;padding:8px 10px;background:#eef2ff;color:#1e3a8a;font-weight:900;font-size:.82rem}
+.dark .icon-btn{background:#172554;color:#bfdbfe}
+.hero{
+  min-height:100vh;padding:94px 20px 36px;color:white;display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(circle at top left,rgba(96,165,250,.95),transparent 38%),linear-gradient(145deg,#1d4ed8 0%,#1e3a8a 48%,#0f172a 100%);
+}
+.kicker{display:inline-flex;align-self:flex-start;padding:8px 12px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(255,255,255,.12);font-weight:850;font-size:.88rem;margin-bottom:18px}
+h1{margin:0;font-size:3.9rem;line-height:.95;letter-spacing:-.075em}
+.tagline{margin:18px 0 24px;font-size:1.08rem;line-height:1.6;opacity:.94}
+.hero-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.cta{display:flex;justify-content:center;align-items:center;min-height:52px;border-radius:17px;text-decoration:none;font-weight:950;border:0;font-size:1rem}
+.cta.primary{background:white;color:#1d4ed8}.cta.secondary{color:white;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24)}
+.hero-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:18px;backdrop-filter:blur(16px);box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.scale-svg{display:flex;justify-content:center;margin:8px 0 16px}.mock-list{display:grid;gap:10px}
+.mock-row{display:flex;justify-content:space-between;gap:12px;align-items:center;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:12px}
+.mock-row strong{display:block;font-size:.94rem}.mock-row span{opacity:.75;font-size:.82rem}
+.mini-bar{width:76px;height:8px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden;flex:0 0 auto}.mini-bar i{display:block;height:100%;background:white;border-radius:999px}
+.dashboard{padding:18px 14px 92px;margin-top:-18px;border-radius:28px 28px 0 0;background:var(--bg);position:relative}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:16px;box-shadow:0 18px 42px rgba(15,23,42,.08)}
+.screen{display:none}.screen.show{display:block}
+.section-title{margin:4px 0 4px;font-size:1.35rem;letter-spacing:-.04em}.section-sub{margin:0 0 16px;color:var(--muted);line-height:1.45;font-size:.94rem}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}.stat{background:#f8fafc;border:1px solid var(--border);border-radius:20px;padding:14px}.dark .stat{background:#111827}.stat-label{color:var(--muted);font-size:.8rem;font-weight:800;margin-bottom:5px}.stat-value{font-size:1.45rem;font-weight:950}
+.primary-action{width:100%;border:0;background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;border-radius:20px;padding:16px;font-weight:950;font-size:1.05rem;margin:0 0 14px}
+.secondary-action{border:0;background:#eef2ff;color:#1e3a8a;border-radius:16px;padding:12px 14px;font-weight:900;margin:3px}.dark .secondary-action{background:#172554;color:#bfdbfe}
+.area-card,.topic-card{border:1px solid var(--border);border-radius:22px;padding:15px;background:var(--card);margin-bottom:12px}
+.area-card:active,.topic-card:active,.answer:active{transform:scale(.99)}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.area-card h3,.topic-card h3{margin:0 0 6px;font-size:1.08rem}.area-card p,.topic-card p{margin:0;color:var(--muted);line-height:1.45;font-size:.93rem}
+.progress{height:9px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:12px}.dark .progress{background:#1e293b}.bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:999px}
+.pill{display:inline-flex;padding:7px 10px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:.78rem;font-weight:900;margin:12px 6px 0 0}.dark .pill{background:#172554;color:#bfdbfe}
+.breadcrumb{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.question-badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:.8rem;font-weight:900;margin-bottom:12px}.dark .question-badge{background:#172554;color:#bfdbfe}
+.question{font-size:1.28rem;line-height:1.32;font-weight:950;margin:0 0 16px}
+.answers{display:grid;gap:10px}.answer{width:100%;border:1px solid var(--border);border-radius:18px;background:var(--card);color:var(--text);padding:14px;text-align:left;font-weight:850;font-size:1rem;line-height:1.35}
+.answer.correct{background:#dcfce7;color:#14532d;border-color:#86efac}.answer.wrong{background:#fee2e2;color:#7f1d1d;border-color:#fecaca}
+.feedback{display:none;margin-top:14px;padding:14px;border-radius:18px;background:#f8fafc;border:1px solid var(--border);line-height:1.5}.dark .feedback{background:#111827}.feedback.show{display:block}
+.row-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.graph-card,.calendar-card{margin-top:14px;border:1px solid var(--border);border-radius:24px;padding:15px;background:var(--card)}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:10px}.day{aspect-ratio:1;border-radius:12px;background:#f1f5f9;color:var(--muted);display:grid;place-items:center;font-size:.75rem;font-weight:900}.dark .day{background:#111827}.day.done{background:#dbeafe;color:#1d4ed8}.day.hot{background:#2563eb;color:white}
+.bottom-nav{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 12px);transform:translateX(-50%);width:min(398px,calc(100vw - 24px));z-index:50;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px;border-radius:24px;background:rgba(255,255,255,.88);border:1px solid rgba(226,232,240,.85);backdrop-filter:blur(16px);box-shadow:0 18px 40px rgba(15,23,42,.18)}
+.dark .bottom-nav{background:rgba(15,23,42,.88)}.bottom-nav button{border:0;background:transparent;color:var(--text);font-size:.72rem;font-weight:850;padding:8px 4px;border-radius:16px}
+</style>
+</head>
+
+<body>
+<div class="app">
+<nav class="topbar">
+  <div class="brand">⚖️ LawLingo</div>
+  <button class="icon-btn" onclick="toggleDark()">Dark</button>
+</nav>
+
+<section class="hero" id="top">
+  <div class="kicker">Legal revision, reimagined</div>
+  <h1>LawLingo</h1>
+  <p class="tagline">A clean legal learning workspace where the quiz engine stays at the centre.</p>
+  <div class="hero-buttons">
+    <button class="cta primary" onclick="goDashboard()">Start revision</button>
+    <button class="cta secondary" onclick="showScreen('areas')">Topics</button>
+  </div>
+  <div class="hero-card">
+    <div class="scale-svg">
+      <svg width="210" height="150" viewBox="0 0 330 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="54" y="22" width="222" height="162" rx="24" fill="rgba(255,255,255,.10)" stroke="rgba(255,255,255,.35)" />
+        <path d="M165 50V155" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M118 78H212" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M118 78L88 134H148L118 78Z" fill="rgba(255,255,255,.16)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M212 78L182 134H242L212 78Z" fill="rgba(255,255,255,.16)" stroke="white" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M118 176H212" stroke="white" stroke-width="8" stroke-linecap="round"/>
+        <path d="M98 198H232" stroke="white" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="mock-list">
+      <div class="mock-row"><div><strong>Quiz-first dashboard</strong><span>Practice questions restored</span></div><div class="mini-bar"><i style="width:92%"></i></div></div>
+      <div class="mock-row"><div><strong>Adaptive recall</strong><span>Weak areas resurface</span></div><div class="mini-bar"><i style="width:68%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dashboard" id="dashboard">
+  <div class="panel">
+    <div id="home" class="screen show">
+      <h2 class="section-title">Main dashboard</h2>
+      <p class="section-sub">Start a quiz immediately or choose a practice area.</p>
+      <div class="stats">
+        <div class="stat"><div class="stat-label">XP</div><div class="stat-value" id="xp">0</div></div>
+        <div class="stat"><div class="stat-label">Streak</div><div class="stat-value" id="streak">0</div></div>
+        <div class="stat"><div class="stat-label">Lives</div><div class="stat-value" id="lives">5</div></div>
+        <div class="stat"><div class="stat-label">Due</div><div class="stat-value" id="due">0</div></div>
+      </div>
+      <button class="primary-action" onclick="startMixed()">Start quick quiz</button>
+      <div class="row-actions">
+        <button class="secondary-action" onclick="showScreen('areas')">Choose topic</button>
+        <button class="secondary-action" onclick="startAdaptive()">Adaptive quiz</button>
+        <button class="secondary-action" onclick="restoreLives()">Restore lives</button>
+      </div>
+
+      <div class="calendar-card">
+        <h2 class="section-title">Revision calendar</h2>
+        <p class="section-sub">Visual history of your revision activity.</p>
+        <div class="days">
+          <div class="day done">M</div><div class="day done">T</div><div class="day hot">W</div><div class="day done">T</div><div class="day">F</div><div class="day">S</div><div class="day">S</div>
+          <div class="day done">M</div><div class="day hot">T</div><div class="day done">W</div><div class="day">T</div><div class="day">F</div><div class="day done">S</div><div class="day">S</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="areas" class="screen">
+      <h2 class="section-title">Practice areas</h2>
+      <p class="section-sub">Choose an area to start topic-based quizzes.</p>
+      <div id="areaList"></div>
+    </div>
+
+    <div id="topics" class="screen">
+      <div class="breadcrumb" id="crumb"></div>
+      <h2 class="section-title" id="topicTitle">Topics</h2>
+      <div id="topicList"></div>
+      <button class="secondary-action" onclick="showScreen('areas')">Back to areas</button>
+    </div>
+
+    <div id="quiz" class="screen">
+      <div class="question-badge" id="quizBadge"></div>
+      <div class="question" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="row-actions">
+        <button class="primary-action" id="nextBtn" style="display:none" onclick="nextQuestion()">Continue</button>
+        <button class="secondary-action" onclick="quitQuiz()">Back</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <button onclick="goDashboard()">Home</button>
+  <button onclick="showScreen('areas')">Topics</button>
+  <button onclick="startMixed()">Quiz</button>
+  <button onclick="startAdaptive()">Adaptive</button>
+</nav>
+</div>
+
+<script>
+const DATA=[
+ {id:"children",title:"Children Law",desc:"Welfare, child arrangements, PD12J and safeguarding.",topics:[
+   {id:"ca1989",title:"Children Act 1989",desc:"Welfare principle and section 8 orders.",questions:[
+    {q:"What is the court's paramount consideration in Children Act proceedings?",options:["The child's welfare","Parental equality","Administrative convenience","The applicant's preference"],answer:0,explain:"The child's welfare is the court's paramount consideration."},
+    {q:"Which is a section 8 order?",options:["Child arrangements order","Pension sharing order","Freezing injunction","Decree absolute"],answer:0,explain:"Section 8 includes child arrangements, prohibited steps and specific issue orders."},
+    {q:"What does the no-delay principle recognise?",options:["Delay is likely to prejudice the child's welfare","All hearings must finish in one day","Experts are never allowed","Parents cannot adjourn"],answer:0,explain:"Delay is likely to prejudice the welfare of the child."}
+   ]},
+   {id:"pd12j",title:"PD12J",desc:"Domestic abuse allegations in child arrangements cases.",questions:[
+    {q:"What is PD12J mainly concerned with?",options:["Child arrangements where domestic abuse is alleged","Pension valuation","TLATA declarations","Costs budgeting"],answer:0,explain:"PD12J guides the court where domestic abuse is alleged, admitted or proven."}
+   ]}
+ ]},
+ {id:"finance",title:"Financial Remedies",desc:"Section 25, needs, sharing, compensation and pensions.",topics:[
+   {id:"principles",title:"Core Principles",desc:"Needs, compensation, sharing and fairness.",questions:[
+    {q:"Which case is strongly associated with the modern sharing principle?",options:["White v White","Donoghue v Stevenson","Re A","Hadley v Baxendale"],answer:0,explain:"White v White is a key authority on fairness and sharing."},
+    {q:"What are the three strands often cited from Miller/McFarlane?",options:["Needs, compensation and sharing","Offer, acceptance and consideration","Assurance, reliance and detriment","Threshold, welfare and delay"],answer:0,explain:"Needs, compensation and sharing are the recognised fairness strands."},
+    {q:"What does section 25 MCA 1973 guide?",options:["Financial remedy discretion","Child arrangements only","Criminal sentencing","Civil limitation"],answer:0,explain:"Section 25 sets out matters the court considers when exercising financial remedy powers."}
+   ]}
+ ]},
+ {id:"tlata",title:"TLATA",desc:"Trusts of land and beneficial interests.",topics:[
+   {id:"beneficial",title:"Beneficial Interests",desc:"Constructive trust and proprietary estoppel basics.",questions:[
+    {q:"A common intention constructive trust usually requires common intention and what else?",options:["Detrimental reliance","A pension report","A care order","A decree nisi"],answer:0,explain:"Common intention and detrimental reliance are usually required."},
+    {q:"Stack v Dowden is mainly about what?",options:["Beneficial interests in domestic property","The welfare checklist","Pension sharing","Occupation orders"],answer:0,explain:"Stack v Dowden concerns beneficial interests in co-owned domestic property."}
+   ]}
+ ]}
+];
+
+let state=JSON.parse(localStorage.getItem("lawlingo-mobile-quiz")||'{"xp":0,"streak":0,"lives":5,"completed":{},"performance":{},"spaced":{}}');
+let selectedArea=null,currentTopic=null,currentQuestions=[],currentIndex=0,sessionMode="normal",score=0,answered=false;
+
+function save(){localStorage.setItem("lawlingo-mobile-quiz",JSON.stringify(state));renderStats()}
+function allTopics(){return DATA.flatMap(a=>a.topics.map(t=>({...t,areaTitle:a.title,areaId:a.id})))}
+function flatQ(){return allTopics().flatMap(t=>t.questions.map(q=>({...q,topicTitle:t.title,topicId:t.id,areaTitle:t.areaTitle})))}
+function dueQ(){let now=Date.now();return flatQ().filter(q=>state.spaced[q.q]&&state.spaced[q.q].next<=now)}
+function renderStats(){document.getElementById("xp").textContent=state.xp;document.getElementById("streak").textContent=state.streak;document.getElementById("lives").textContent=state.lives;document.getElementById("due").textContent=dueQ().length}
+function showScreen(id){document.getElementById("dashboard").scrollIntoView();document.querySelectorAll(".screen").forEach(s=>s.classList.remove("show"));document.getElementById(id).classList.add("show");if(id==="areas")renderAreas()}
+function goDashboard(){showScreen("home")}
+function renderAreas(){
+ const el=document.getElementById("areaList");el.innerHTML="";
+ DATA.forEach(a=>{
+  let count=a.topics.reduce((s,t)=>s+t.questions.length,0);
+  let div=document.createElement("div");div.className="area-card";
+  div.innerHTML=`<div class="card-top"><div><h3>${a.title}</h3><p>${a.desc}</p></div><div class="chev">›</div></div><span class="pill">${a.topics.length} topics</span><span class="pill">${count} questions</span>`;
+  div.onclick=()=>showTopics(a);el.appendChild(div);
+ });
+}
+function showTopics(area){
+ selectedArea=area;showScreen("topics");document.getElementById("crumb").textContent="Practice areas / "+area.title;document.getElementById("topicTitle").textContent=area.title;
+ const el=document.getElementById("topicList");el.innerHTML="";
+ area.topics.forEach(t=>{
+  let done=state.completed[t.id]||0;let pct=Math.round(done/t.questions.length*100);
+  let div=document.createElement("div");div.className="topic-card";
+  div.innerHTML=`<div class="card-top"><div><h3>${t.title}</h3><p>${t.desc}</p></div><div class="chev">›</div></div><div class="progress"><div class="bar" style="width:${pct}%"></div></div><span class="pill">${t.questions.length} questions</span><span class="pill">${pct}% complete</span>`;
+  div.onclick=()=>startTopic(t,area);el.appendChild(div);
+ });
+}
+function startTopic(topic,area){if(state.lives<=0)return alert("No lives left. Restore lives first.");selectedArea=area;currentTopic={...topic,areaTitle:area.title};currentQuestions=[...topic.questions];currentIndex=0;score=0;sessionMode="topic";showScreen("quiz");showQuestion()}
+function startMixed(){if(state.lives<=0)return alert("No lives left. Restore lives first.");currentTopic={id:"mixed",title:"Quick Quiz",areaTitle:"All areas"};currentQuestions=shuffle(flatQ()).slice(0,8);currentIndex=0;score=0;sessionMode="mixed";showScreen("quiz");showQuestion()}
+function acc(topic){let p=state.performance[topic];return p?p.correct/(p.seen||1):0.5}
+function startAdaptive(){if(state.lives<=0)return alert("No lives left. Restore lives first.");let combined=[...dueQ(),...flatQ().sort((a,b)=>acc(a.topicTitle)-acc(b.topicTitle))].filter((q,i,a)=>a.findIndex(x=>x.q===q.q)===i);currentTopic={id:"adaptive",title:"Adaptive Quiz",areaTitle:"LawLingo"};currentQuestions=combined.slice(0,8);currentIndex=0;score=0;sessionMode="adaptive";showScreen("quiz");showQuestion()}
+function showQuestion(){
+ answered=false;
+ const item=currentQuestions[currentIndex];
+ document.getElementById("quizBadge").textContent=`${item.areaTitle||currentTopic.areaTitle} / ${item.topicTitle||currentTopic.title} · ${currentIndex+1}/${currentQuestions.length}`;
+ document.getElementById("question").textContent=item.q;
+ document.getElementById("feedback").classList.remove("show");
+ document.getElementById("feedback").innerHTML="";
+ document.getElementById("nextBtn").style.display="none";
+ const answers=document.getElementById("answers");answers.innerHTML="";
+ item.options.forEach((opt,i)=>{
+  let btn=document.createElement("button");btn.className="answer";btn.textContent=opt;btn.onclick=()=>chooseAnswer(btn,i);answers.appendChild(btn);
+ });
+ renderStats();
+}
+function chooseAnswer(btn,idx){
+ if(answered)return;answered=true;
+ const item=currentQuestions[currentIndex];const topic=item.topicTitle||currentTopic.title;const buttons=[...document.querySelectorAll(".answer")];
+ buttons.forEach(b=>b.disabled=true);buttons[item.answer].classList.add("correct");
+ if(!state.performance[topic])state.performance[topic]={seen:0,correct:0};
+ state.performance[topic].seen++;
+ if(idx===item.answer){
+  score++;state.xp+=10;state.streak+=1;state.performance[topic].correct++;
+  if(sessionMode==="topic")state.completed[currentTopic.id]=Math.max(state.completed[currentTopic.id]||0,currentIndex+1);
+  schedule(item,true);
+  document.getElementById("feedback").innerHTML=`<strong>Correct.</strong><br>${item.explain}`;
+ }else{
+  btn.classList.add("wrong");state.lives=Math.max(0,state.lives-1);schedule(item,false);
+  document.getElementById("feedback").innerHTML=`<strong>Not quite.</strong><br>${item.explain}<br><br><strong>Correct answer:</strong> ${item.options[item.answer]}`;
+ }
+ document.getElementById("feedback").classList.add("show");
+ document.getElementById("nextBtn").style.display="block";
+ save();
+}
+function nextQuestion(){
+ currentIndex++;
+ if(currentIndex>=currentQuestions.length){
+  alert(`Quiz complete: ${score}/${currentQuestions.length}`);
+  if(sessionMode==="topic"&&selectedArea)showTopics(selectedArea);else goDashboard();
+ }else showQuestion();
+}
+function quitQuiz(){if(sessionMode==="topic"&&selectedArea)showTopics(selectedArea);else goDashboard()}
+function schedule(q,ok){let old=state.spaced[q.q]||{interval:1};let interval=ok?Math.min((old.interval||1)*2,30):1;state.spaced[q.q]={interval,next:Date.now()+interval*86400000}}
+function restoreLives(){state.lives=5;save()}
+function shuffle(a){return a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1])}
+function toggleDark(){document.body.classList.toggle("dark")}
+renderStats();renderAreas();
+</script>
+</body>
+</html>
